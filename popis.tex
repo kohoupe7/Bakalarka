@@ -21,7 +21,7 @@ Jako pohon kotoučů a podávacího ramene, byly použity asynchronní motory fi
 
 Kotouče byly vyrobeny ze silonu a měli průměr 198~mm. Na tyto kotouče byla, pomocí kovového mezikruží, natažena guma z duše k automobilu. Tímto pogumováním je zvýšeno tření mezi kotouči a míčkem. Bohužel tato guma nebyla přilepena a proto se při vysokých rychlostech nafukovala.
 
-Podavač je tvořen zásobníkem na míčky, ve tvaru tubusu. Na konci je zůžení o které se míček zasekne. Pomocí dvou proti sobě umístěných podavačů je míček posunut o patro níže, kde je opět zůžení. V tomto zúžení je poté míček nabrán pomocí otočného ramene, které míček dopraví mezi kotouče viz Obrázek \ref[3Dpod]
+Podavač je tvořen zásobníkem na míčky, ve tvaru tubusu. Na konci je zúžení o které se míček zasekne. Pomocí dvou proti sobě umístěných podavačů je míček posunut o patro níže, kde je opět zúžení. V tomto zúžení je poté míček nabrán pomocí otočného ramene, které míček dopraví mezi kotouče viz Obrázek \ref[3Dpod]
 
 \midinsert \clabel[3Dpod]{3D model podavače.}
 \picw=13cm \cinspic pic/A_Sestava_badminton-2.jpg
@@ -54,7 +54,7 @@ Prvním zástupcem konkurence je Knight Trainer viz. Obrázek \ref[knight]. Zař
 
 \sec Apollo Badminton Trainer
 
-Další zástupce konkurenčních výrobků je Apollo Badminton Trainer zobrazený na obrázku \ref[apollo]. Zařízení je opět montováno na stativu s kolečky, u kterého se dá nastavit výška v rozmezí 1,3~m až 1,8~m. Zásobník má kapacitu 250 košíků a zvládá vystřelit jeden košík za 1,2~s. Rozsah na natočení azimutu je $180^\circ$. Nastavení elevace zvládá v rozsahu $-15^\circ$ až $65^\circ$. Rychlost výstřelu je nastavitelná až do 130~mph. Nastavení směru lze provádět manuálně nebo automaticky podle některého ze zvolených tréninkových programů. Lze naprogramovat až 9 tréninkových programů pomocí připojeného PC. Ovládání na kurtu potom probíhá pomocí bezdrátového ovladače. K tomuto stroji lze opět připojit druhý, čímž lze získat dvojnásobnou frekvenci odpalu tedy 0,65~s a dvojnásobnou kapacitu zásobníku.
+Další zástupce konkurenčních výrobků je Apollo Badminton Trainer zobrazený na obrázku \ref[apollo]. Zařízení je opět montováno na stativu s kolečky, u kterého se dá nastavit výška v rozmezí 1,3~m až 1,8~m. Zásobník má kapacitu 250 košíků a zvládá vystřelit jeden košík za 1,2~s. Rozsah na natočení azimutu je $180^\circ$. Nastavení elevace zvládá v rozsahu $-15^\circ$ až $65^\circ$. Rychlost výstřelu je nastavitelná až do 209~km/h. Nastavení směru lze provádět manuálně nebo automaticky podle některého ze zvolených tréninkových programů. Lze naprogramovat až 9 tréninkových programů pomocí připojeného PC. Ovládání na kurtu potom probíhá pomocí bezdrátového ovladače. K tomuto stroji lze opět připojit druhý, čímž lze získat dvojnásobnou frekvenci odpalu, tedy 0,65~s a dvojnásobnou kapacitu zásobníku.
 
 
 \midinsert \clabel[apollo]{Apollo Badminton Trainer \cite[apollo].}
@@ -71,6 +71,29 @@ Jedná se o stroj britské společnosti Siboasi. Tato společnost dodává něko
 \caption/f Siboasi SS-YB-8000 \cite[siboasi]. 
 \endinsert
 
+
+\sec Porovnání konkurence
+
+\nl
+
+ \clabel[konkurence]{Porovnání konkurence.}
+\ctable{ccccc}{
+ \hfil  & Knight Trainer & Apollo Badminton  & Siboasi\cr
+  & & Trainer &  \crl \tskip4pt
+  Výška & 1,98~m - 2,4~m & 1,3~m - 1,8~m &  až 2,4~m \crl
+  Perioda  & 2,5 košíků za s & košík za 1,2~s &  košík za 2~s \cr
+   výstřelů & & & až 12~s \crl
+  Zásobník & 50 košíků & 250 košíků & 110 košíků \crl
+  Azimut & Manuálně & Automaticky  &  Automaticky  \crl
+  Elevace & Manuálně & Automaticky &  Automaticky \crl
+  Rychlost &  & až 209~km/h &  30~km/h až \cr
+   odpalu &  &  & 150~km/h \crl
+  Ovládání & dálkové ovládání & PC & LCD display \cr
+   &  & dálkové ovládání & dálkové ovládání \crl
+  Tréninkové & Manuálně & 9 programovatelných & 16 pevných + \cr
+  programy &  & pomocí PC & programovatelné \cr
+}
+\caption/t Porovnání konkurence.
 
 
 \label[prototyp2]
@@ -127,7 +150,7 @@ Za transformátorem je umístěn hlavní vypínač, kterým se vypíná napájen
 
 \sec Dynamické parametry
 
-K určení dynamických parametrů bylo provedeno několik experimentů. Cílem bylo zjistit maximální možnosti stroje a porovnat je s požadavkama, které vyplývají z kapitoly~\ref[programy].
+K určení dynamických parametrů bylo provedeno několik experimentů. Cílem bylo zjistit maximální možnosti stroje a porovnat je s požadavky, které vyplývají z kapitoly~\ref[programy].
 
 \secc Parametry PID regulátorů polohy
 
@@ -135,7 +158,7 @@ Dynamické parametry závisí na nastavení PID regulátoru polohy v servozesilo
 
 \secc Elevace
 
-Z obrázku \ref[elevace1] vyplývá že pohyb z polohy $-45^\circ$ do polohy $45^\circ$ trval 0,8~s. Tento pohyb je téměř bez překmitu, bohužel při kratšim než $20^\circ$ má motor moc malý krouticí moment a tak nezvládne stroj ubrzdit a dochází k velkému překmitu, což je vidět na obrázku Obrázek \ref[elevace2]. V tomto případě trvá pohyb do ustálení přibližně 0,75~s. Proto je potřeba při takto krátkém přesunu snížit hodnotu zrychlení. Při snížení zrychlení o 60~$ {ot}\over{min \cdot s^2}$ se zmenší překmit a doba do ustálení se zkrátí přibližně na 0,5~s.
+Z obrázku \ref[elevace1] vyplývá že pohyb z polohy $-45^\circ$ do polohy $45^\circ$ trval 0,8~s. Tento pohyb je téměř bez překmitu, bohužel při kratšim než $20^\circ$ má motor moc malý krouticí moment a tak nezvládne stroj ubrzdit a dochází k velkému překmitu, což je vidět na obrázku \ref[elevace2]. V tomto případě trvá pohyb do ustálení přibližně 0,75~s. Proto je potřeba při takto krátkém přesunu snížit hodnotu zrychlení. Při snížení zrychlení o 60~$ {ot}\over{min \cdot s^2}$ se zmenší překmit a doba do ustálení se zkrátí přibližně na 0,5~s.
 
 \midinsert \clabel[elevace1]{Graf pohybu z polohy $-45^\circ$ do polohy $45^\circ$.}
 \picw=4cm \cinspic pic/elevace1.jpg
@@ -195,6 +218,80 @@ Požadavky na podavač, které jsou dány v kapitole \ref[programy], jsou velmi 
 
 \rfc{Naměřit na kurtu a dodělat.}
 
+Úkolem tohoto měření bylo zjistit přesnost úderů v různých situacích. Samotné měření bylo rozděleno na čtyři části. V každé z těchto částí bylo určeno několik poloh, do kterých se stroj trefoval a byla měřena vzdálenost dopadu míčku od cílového bodu. Každé měření bylo provedeno několikrát, aby se eliminovala chyba měření. Cílem těchto měření bylo zjistit, zda je výpočet dostřelu, použitý v automatických režimech, dostatečně přesný.
+
+\secc Statické měření střelby rovně před sebe
+
+V prvním měření byl určen pouze jeden bod a stroj střílel přímo před sebe. Určená vzdálenost byla 4~m. Tímto se určí závislost rozptylu na konkrétním míčku. 
+
+\midinsert \clabel[mereni1]{Naměřené hodnoty při střelbě rovně před sebe.}
+\ctable{ccc}{
+ \hfil Míček & Vzdálenost od cílového bodu\crl \tskip4pt
+  1 & ano \cr
+  2 & ano \cr 
+  3 & ano \cr 
+  4 & ano \cr 
+  5 & ano \cr 
+  6 & ano \cr
+  7 & ano \cr 
+  8 & ano \cr 
+  9 & ano \cr 
+  10 & ano \cr 
+}
+\caption/t Naměřené hodnoty při střelbě rovně před sebe.
+\endinsert
+
+Průměrná vzdálenost dopadu míčku od cílového bodu je \rfc{mereni}. 
+
+\secc Dynamické měření přesnosti při střídání stran
+
+V druhém měření byly určeny dva body vzdálené 4,5~m od sebe a ve vzdálenosti 4~m od sítě viz. Obrázek \ref[merenipic1]. Stroj střídal strany a střílel postupně na oba body. 
+
+\midinsert \clabel[mereni2]{Naměřené hodnoty při střídání stran.}
+\ctable{cccc}{
+ \hfil Míček & Vzdálenost od bodu 1 & Vzdálenost od bodu 2\crl \tskip4pt
+  1 & ano & ano \cr
+  2 & ano & ano \cr 
+  3 & ano & ano \cr 
+  4 & ano & ano \cr 
+  5 & ano & ano \cr 
+  6 & ano & ano \cr
+  7 & ano & ano \cr 
+  8 & ano & ano \cr 
+  9 & ano & ano \cr 
+  10 & ano & ano \cr 
+}
+\caption/t Naměřené hodnoty při střídání stran.
+\endinsert
+
+V toto měření byla měřena přesnost střelby při střídání stran. Průměrná vzdálenost dopadu míčků od bodu 1 je \rfc{mereni} a od bodu 2 \rfc{mereni}.
+
+\secc Dynamické měření přesnosti při střídání vzdálenosti
+
+Poslední měření mělo za úkol zjistit přesnost střelby při změně vzdálenosti, do které stroj střílí. Opět byli zvoleny dva body rovně před strojem. První bod byl ve vzdálenosti 4,5~m a druhý ve vzdálenosti 8~m. 
+
+\midinsert \clabel[mereni3]{Naměřené hodnoty při střídání vzdálenosti.}
+\ctable{cccc}{
+ \hfil Míček & Vzdálenost od bodu 1 & Vzdálenost od bodu 2\crl \tskip4pt
+  1 & ano & ano \cr
+  2 & ano & ano \cr 
+  3 & ano & ano \cr 
+  4 & ano & ano \cr 
+  5 & ano & ano \cr 
+  6 & ano & ano \cr
+  7 & ano & ano \cr 
+  8 & ano & ano \cr 
+  9 & ano & ano \cr 
+  10 & ano & ano \cr 
+}
+\caption/t Naměřené hodnoty při střídání vzdálenosti.
+\endinsert
+
+Průměrná vzdálenost dopadu míčků od bodu 1 je \rfc{mereni} a od bodu 2 \rfc{mereni}.
+
+\secc Závěr měření
+
+Z naměřených hodnot vyplývá že vztah použitý pro výpočet doletu je pro naše účely dostatečně přesný. Při statickém měření bylo zjištěno jaký vliv na přesnost mají různé míčky. Rozptyl naměřených hodnot při statickém měření byl. Nejvyšší nepřesnost byla naměřena pri střídání vzdálenosti, ale tato chyba není nikterak velká, průměrně. Při střídání stran je chyba jen o málo menší než při střídání vzdálenosti. 
 
 
 \chap Algoritmus řízení
@@ -208,7 +305,7 @@ V této kapitole je popsána struktura řídicího programu. Použité PLC se d�
 
 \sec Struktura programu
 
-Samotný program je rozdělen do balíčků a funkcí. Balíčků je velké množství a slouží zde pro inicializaci a řízení motorů. Všechny řídicí funkce jsou v balíčku Ostatní. Nejdůležitější funkcí je KontrolAut. Tato funkce se automaticky volá každých 100~ms a slouží k řízení odpalu při automatických tréninkových programech. Jedná se o stavový automat jehož struktura je uvedena na obrázku \ref[diagram]. V této funkci jsou také přednastaveny počáteční parametry jednotlivých programů. 
+Samotný program je rozdělen do balíčků a funkcí. Balíčků je velké množství a slouží zde pro inicializaci a řízení motorů. Všechny řídicí funkce jsou v balíčku Ostatní. Nejdůležitější funkcí je KontrolAut. Tato funkce se automaticky volá každých 100~ms a slouží k řízení odpalu při automatických tréninkových programech. Jedná se o stavový automat, jehož struktura je uvedena na obrázku \ref[diagram]. V této funkci jsou také přednastaveny počáteční parametry jednotlivých programů. 
 
 Ve stavu VYPNUTO je stroj v klidu a čeká na spuštění některého z programů. Po nastartování tréninkového programu přechází do stavu PRIPRAVA, kde dochází ke spuštění motorů a vynulování relativních počítadel polohy. Po úspěšném spuštění motorů následuje stav PRIPRAVAOK, kde je spuštěna virtuální převodovka a stavový automat se dělí na jednotlivé programy. Každý tréninkový program má tři stavy. První stav například PARAMETRY4 pro čtvrtý tréninkový program slouží k inicializaci startovních parametrů programu. Dalším stavem je NastaveniParametruP4, který vypočítá nové hodnoty parametrů pro další výstřel. Po tomto stavu následuje stav PalP4 ve kterém dojde k odpalu míčku a přechází se zpět k NastaveniParametruP4. Tyto stavy jsou ale pouze u nově přidaných tréninkových programů, u náhodných programů, které byly obsaženy v prvním prototypu je pouze stav PARAMETRY a CHOD. Nakonec jsou zde stavy VYPINANI a PORUCHA. Stav VYPINANI slouží k vypnutí probíhajícího tréninkového programu. Dojde k zastavení všech pohonů a vypnutí motorů. Do stavu PORUCHA se stroj dostane při jakékoliv chybě pohonů, na diagramu znázorněno červenými přerušovanými šipkami.
 
