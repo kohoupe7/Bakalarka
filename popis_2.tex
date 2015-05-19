@@ -1,0 +1,139 @@
+
+\catcode`<=13
+\def<#1>{\hbox{$\langle$\it#1\/$\rangle$}}
+\def\OPmac{\hbox{OPmac}}
+
+\chap Původní stav
+
+V této kapitole je uveden popis stroje před započetím práce. Tato bakalářská práce svým obsahem navazuje na bakalářskou práci Ondřeje Maslikiewicze  a rozšiřuje možnosti stroje o nastavení azimutu a elevace. Dále se tato práce bude zabývat tvorbou nové konstrukce a výběrem nové řídicí jednotky.
+
+\sec Popis konstrukce 
+
+Původní konstrukce byla tvořena dvěmi, protiběžně rotujícími kotouči, zásobníkem na badmintonové míčky a podávacím ramenem viz. Obrázek \ref[3D1]
+
+\midinsert \clabel[3D1]{3D model prvního prototypu.}
+\picw=13cm \cinspic pic/A_Sestava_badminton-3.jpg
+\caption/f 3D model prvního prototypu.
+\endinsert
+
+Jako pohon kotoučů a podávacího ramena byli použity asynchroní motory firmy B\&R 8MSA2S.R0-42-Rev.D0. Tyto motory mají korouticí moment pouze 0,2~Nm, což celkem limituje možné zrychlení. Pro každý kotouč je použit jeden motor a tyto motory jsou pak pomocí virtuální převodovky synchronizovány.
+
+\sec Řízení
+
+K řízení bylo použito PLC firmy B\&R X20CP1485. Toto PLC mělo poměrně malou paměť RAM, z tohoto důvodu mohlo být ovládání pouze s rozlišením 320~x~240. K PLC byly přes sběrnici POWERLINK připojeny servořadiče ACOPOS 8V1010. Polohová zpětná vazba od motorů byla realizována pomocí resolverové karty AC122. 
+
+Motory pohánějící kotouče jsou vzájemě synchronizovány pomocí virtuální převodovky s převodovým poměrem -1. 
+
+
+
+\chap Prototyp 2
+
+Druhý prototyp vychází z původního stroje, ke kterému přidává možnost změny elevace a azimutu. Konstrukce je opět tvořena rotujícími kotouči a podávacím ramenem. 
+
+\midinsert  \clabel[3D2]{3D model druhého prototypu.}
+\picw=.4\hsize
+\centerline {\inspic pic/A_badminton+A+E-2.jpg \hfil\hfil \inspic pic/A_badminton+A+E-4.jpg }\nobreak
+\centerline {a)\hfil\hfil b)}\nobreak\medskip
+\caption/f 3D model druhého prototypu.
+\endinsert
+
+Pro pohon kotoučů, podavače a nastavení azimutu jsou opět použity motory B\&R 8MSA2S.R0-42-Rev.D0. K pohonu nastavení elevace je použit silnější motor B\&R 8LSA25.R0060D000-0 Rev.C4. Tento silnější motor má krouticí moment 0.6~Nm. I přes to, že byl na nastavení elevace použit silnější motor, tak se tento motor přibližně po minutě přehřál a servozesilovač spadl do chyby. Proto muselo být přidáno závaží, které vyvážilo celý mechanizmus. 
+
+Motory jsou opět ovládány pomocí servozesilovačů ACOPOS 8V1010. K zařízení byl také přidán acess point díky čemuž lze zařízení ovládal pomocí technologie WiFi například z mobilního telefonu. Kompletní zapojení rozvaděče viz. Obrázek \ref[schema].
+
+\midinsert \clabel[schema]{Schema zapojení rozvaděče.}
+\picw=15cm \cinspic pic/schema_p2.JPG
+\caption/f Schema zapojení rozvaděče.
+\endinsert
+
+Dále bylo třeba vyztužit celou konstrukci, jelikož byla nestabilní a při rychlé změně azimutu se celá rozkmitala. Při testování na kurtu byl objeven další problém, tím byl neodladěný podavač. Ten podával míčky takovým způsobem, že z nich kotouče otrhávaly peří a tím míčky ničily. Dále se občas stalo, že se opěrný drát rozkmital a podávací rameno se o něj zachytilo.  
+
+\sec Dynamické parametry
+
+K určení dynamických parametrů bylo provedeno několik experimentů. Cílem bylo zjistit maximální možnosti stroje a porovnat je s požaddavkama, které vyplývají z kapitoly \rfc[odkaz].
+
+\secc Elevace
+
+Z obrázku \ref[azimut1] vyplývá že pohyb z polohy $-45^\circ$ do polohy $45^\circ$ trval 0,8~s. Tento pohyb je téměř bez překmitu, bohužel při kratšim než $20^\circ$ má motor moc malý krouticí moment a tak nezvládne stroj ubrzdit a dochází k velkému překmitu, což je vidět na obrázku Obrázek \ref[azimut2]. V tomto případě trvá pohyb do ustálení přibližně 0,75~s. Proto je potřeba při takto krátkém přesunu snížit hodnotu zrychlení. Při snížení zrychlení o 60$ {ot}\over{min \cdot s^2}$
+
+\midinsert \clabel[azimut1]{Graf pohybu z polohy $-45^\circ$ do polohy $45^\circ$.}
+\picw=4cm \cinspic pic/azimut1.jpg
+\caption/f Graf pohybu z polohy $-45^\circ$ do polohy $45^\circ$.
+\endinsert
+
+\midinsert
+\line{\hsize=.5\hsize \vtop{%
+      \clabel[azimut2]{Graf pohybu z polohy $90^\circ$ do polohy $100^\circ$.}
+      \picw=4cm \cinspic pic/azimut2.jpg
+      \caption/f Graf pohybu z polohy $90^\circ$ do polohy $100^\circ$.
+   \par}\vtop{%
+      \clabel[azimut3]{Graf pohybu z polohy $90^\circ$ do polohy $100^\circ$ se sníženým zrychlením.}
+      \picw=4cm \cinspic pic/azimut3.jpg
+      \caption/f Graf pohybu z polohy $90^\circ$ do polohy $100^\circ$ se sníženým zrychlením.
+   \par}}
+\endinsert
+
+\secc Azimut
+
+\secc Kotouče
+
+\secc Podavač
+
+
+\chap Prototyp 3
+
+\sec Návrh pohonů
+
+\sec Návrh konstrukce
+
+\secc Kotouče
+
+\secc Podavač
+
+\secc Nastavení směru
+
+
+
+
+
+
+
+
+
+
+\chap Nový řídicí systém
+
+\sec Řídicí jednotka
+
+\sec Řízení motorů
+
+
+
+
+
+
+\chap Tréninkové programy
+
+\sec Program 1
+
+\sec Program 2
+
+\sec Program 3
+
+
+
+
+
+\chap Algoritmus řízení
+
+\sec Výpočet doletu
+
+
+
+
+
+\chap Uživatelské rozhraní
+
+
+
+

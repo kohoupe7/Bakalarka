@@ -1,0 +1,84 @@
+% The documentation of the usage of CTUstyle -- the template for
+% typessetting thesis by plain\TeX at CTU in Prague
+% ---------------------------------------------------------------------
+% Petr Olsak  Jan. 2013
+
+% You can copy this file to your own file and do some changes.
+% Then you can run:  pdfcsplain your-file
+
+\input ctustyle   % The template is included here.
+%\input pdfuni    % Uncomment this if you need accented PDFoutlines
+\input opmac-bib % Uncomment this for direct reading of .bib database files 
+
+\worktype [B/CZ] % Type: B = bachelor, M = master, D = Ph.D., O = other
+                 % / the language: CZ = Czech, SK = Slovak, EN = English
+
+\faculty    {F3}  % Type your faculty F1, F2, F3, etc.
+            % use main language of your document here:
+\department {Katedra řídicí techniky}
+\title      {Rozšíření badmintonového stroje}
+%\subtitle   {Šablona v plain\TeX{}u\nl pro sazbu 
+ %            studentských závěrečných prací na ČVUT}
+            % \subtitle is optional
+\author     {Petr Kohout}
+\date       {20.5.2015}
+\supervisor {Ing. Pavel Burget, Ph.D.}  % One or more supervisors
+\studyinfo  {Program: Kybernetika a robotika \nl Obor: Systémy a řízení}  % Study programme etc.
+%\workname   {Dokumentace} % Used only if \worktype [O/*] (Other)
+            % optional more information about the document:
+%\workinfo   {\url{http://petr.olsak.net/ctustyle.html}}
+            % Title / Subtitle in minor language:
+\titleEN    {Enhancement of the badminton machine}
+%\subtitleEN {the plain\TeX{} template for theses at CTU}
+            % If minor language is other than English
+            % use \titleCZ, \subtitleCZ or \titleSK, \subtitleSK instead it.
+\pagetwo    {}  % The text printed on the page 2 at the bottom.
+\specification {\picw=\hsize \cinspic pic/zadani.jpg }
+\abstractEN {
+   \rfc{překlad abstraktu}
+}
+\abstractCZ {
+   Tato bakalářská práce se zabývá rozšířením stávajícího badmintonového stroje o možnost změny elevace a azimutu. Dále se zabývá problematikou automatických tréninkových programů, jejich implementací do stroje, uživatelským rozharním a testováním. V další části je rozebrán točivý moment na jednotlivých osách a z těchto poznatků jsou odvozeny požadavky na motory právě navrhovaného prototypu. Nakonec jsou shrnuty požadavky na novou konstrukci, a navrhnuta řídicí a výkonová jednotka pro řízení nového stroje.
+ 
+}           % If your language is Slovak use \abstractSK instead \abstractCZ
+
+\keywordsEN {%
+   
+}
+\keywordsCZ {%
+   Bakalářská práce, badminton, nadhazování míčků, točivý moment, PLC
+}
+\thanks {           % Use main language here
+   Chtěl bych poděkovat vedoucímu práce Ing. Pavlu Burgetovi, Ph.D. za cenné rady a pomoc při řešení problémů.
+   Dále bych rád poděkoval Ing. Milanovi Bartošovi, CSc. za výrobu konstrukce stroje a konzultace k mechanice.
+   V neposlední řadě také děkuji Mgr. Michalovi Turoňovi za možnost testovat stroj na 
+kurtu a za konzultace při tvorbě tréninkových programů. Dále bych rád poděkovat firmě B\&R za zapůjčení PLC X20CP3586 a powerlinkové karty V1.
+   
+}
+\declaration {      % Use main language here
+   Prohlašuji, že jsem předloženou práci vypracoval
+   samostatně a že jsem uvedl veškeré použité informační zdroje v~souladu
+   s~Metodickým pokynem o~dodržování etických principů při přípravě
+   vysokoškolských závěrečných prací.
+
+   V Praze dne \the\day. \the\month. \the\year % !!! Attention, you have to change this item.
+   \signature % makes dots
+}
+
+%%%%% <--   % The place for your own macros is here.
+
+\draft     % Uncomment this if the version of your document is working only.
+%\linespacing=1.7  % uncomment this if you need more spaces between lines
+                   % Warning: this works only when \draft is activated!
+%\savetoner        % Turns off the lightBlue backround of tables and
+                   % verbatims, only for \draft version.
+%\blackwhite       % Use this if you need really Black+White thesis.
+%\onesideprinting  % Use this if you really don't use duplex printing. 
+
+\makefront  % Mandatory command. Makes title page, acknowledgment, contents etc.
+
+\input uvod    % Files where the source of the document is prepared.
+\input popis   % Full name is: uvod.tex, popis.tex, the suffix can be omitted.
+\input prilohy
+
+\bye

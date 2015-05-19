@@ -1,0 +1,172 @@
+%% OPmac - REF file
+\Xpage{-1}
+\Xpage{-2}
+\Xpage{-3}
+\Xpage{-5}
+\Xpage{-6}
+\Xpage{-7}
+\Xpage{-8}
+\Xpage{1}
+\Xchap{1}{Úvod }{1}
+\Xfig{picKurt}{1.1}{Badmintonový kurt.}
+\Xlabel{picKurt}{1.1}
+\Xpage{2}
+\Xchap{2}{Původní stav }{2}
+\Xsec{2.1}{Popis konstrukce }{2}
+\Xfig{3D1}{2.1}{3D model prvního prototypu.}
+\Xlabel{3D1}{2.1}
+\Xpage{3}
+\Xfig{3Dpod}{2.2}{3D model podavače.}
+\Xlabel{3Dpod}{2.2}
+\Xsec{2.2}{Řízení }{3}
+\Xpage{4}
+\Xchap{3}{Konkurenční řešení }{4}
+\Xsec{3.1}{Knight Trainer }{4}
+\Xfig{knight}{3.1}{Knight Trainer \cite [knight].}
+\Xlabel{knight}{3.1}
+\Xpage{5}
+\Xsec{3.2}{Apollo Badminton Trainer }{5}
+\Xfig{apollo}{3.2}{Apollo Badminton Trainer \cite [apollo].}
+\Xlabel{apollo}{3.2}
+\Xpage{6}
+\Xsec{3.3}{Siboasi }{6}
+\Xfig{siboasi}{3.3}{Siboasi SS-YB-8000 \cite [siboasi].}
+\Xlabel{siboasi}{3.3}
+\Xpage{7}
+\Xlabel{prototyp2}{4}
+\Xchap{4}{Prototyp 2 }{7}
+\Xsec{4.1}{Popis konstrukce }{7}
+\Xfig{3D2}{4.1}{3D model druhého prototypu.}
+\Xlabel{3D2}{4.1}
+\Xsecc{4.1.1}{Ladění podavače }{7}
+\Xpage{8}
+\Xfig{podavace}{4.2}{Podávací ramena vytištěná na 3D tiskárně.}
+\Xlabel{podavace}{4.2}
+\Xsec{4.2}{Elektrické zapojení }{8}
+\Xpage{9}
+\Xfig{schema}{4.3}{Schema zapojení rozvaděče.}
+\Xlabel{schema}{4.3}
+\Xfig{plc}{4.4}{PLC B\&R X20CP3586 \cite [br].}
+\Xlabel{plc}{4.4}
+\Xsec{4.3}{Dynamické parametry }{9}
+\Xsecc{4.3.1}{Parametry PID regulátorů polohy }{9}
+\Xpage{10}
+\Xsecc{4.3.2}{Elevace }{10}
+\Xfig{elevace1}{4.5}{Graf pohybu z polohy $-45^\circ $ do polohy $45^\circ $.}
+\Xlabel{elevace1}{4.5}
+\Xfig{elevace2}{4.6}{Graf pohybu z polohy $90^\circ $ do polohy $100^\circ $.}
+\Xlabel{elevace2}{4.6}
+\Xfig{elevace3}{4.7}{Graf pohybu z polohy $90^\circ $ do polohy $100^\circ $ se sníženým zrychlením.}
+\Xlabel{elevace3}{4.7}
+\Xsecc{4.3.3}{Azimut }{10}
+\Xsecc{4.3.4}{Kotouče }{10}
+\Xpage{11}
+\Xfig{azimut}{4.8}{Graf pohybu z polohy $-15^\circ $ do polohy $10^\circ $.}
+\Xlabel{azimut}{4.8}
+\Xfig{kotouc}{4.9}{Výkres kotouče.}
+\Xlabel{kotouc}{4.9}
+\Xlabel{momentsily}{(1)}
+\Xpage{12}
+\Xsecc{4.3.5}{Podavač }{12}
+\Xfig{podavac}{4.10}{Roztočení podavače}
+\Xlabel{podavac}{4.10}
+\Xsec{4.4}{Měření přesnosti úderů }{12}
+\Xpage{13}
+\Xchap{5}{Algoritmus řízení }{13}
+\Xfig{AS}{5.1}{Vývojové prostředí Automation studio.}
+\Xlabel{AS}{5.1}
+\Xsec{5.1}{Struktura programu }{13}
+\Xpage{14}
+\Xfig{diagram}{5.2}{Vývojový diagram automatického řízení.}
+\Xlabel{diagram}{5.2}
+\Xsec{5.2}{Výpočet doletu }{14}
+\Xlabel{dolet}{(1)}
+\Xpage{15}
+\Xchap{6}{Uživatelské rozhraní }{15}
+\Xsec{6.1}{Volba a nastavení tréninkového programu }{15}
+\Xfig{volbaProgramu}{6.1}{Vizualizace - Výběr tréninkového programu}
+\Xlabel{volbaProgramu}{6.1}
+\Xpage{16}
+\Xfig{nastaveniProgramu}{6.2}{Vizualizace - Nastavení tréninkového programu}
+\Xlabel{nastaveniProgramu}{6.2}
+\Xfig{chod}{6.3}{Vizualizace - Chod programu}
+\Xlabel{chod}{6.3}
+\Xsec{6.2}{Chod tréninkového programu }{16}
+\Xpage{17}
+\Xfig{manual}{6.4}{Vizualizace - Manuál}
+\Xlabel{manual}{6.4}
+\Xsec{6.3}{Manuální režim a servisní obrazovka }{17}
+\Xfig{servis}{6.5}{Vizualizace - Servis}
+\Xlabel{servis}{6.5}
+\Xpage{18}
+\Xlabel{tocmoment}{7}
+\Xchap{7}{Analýza točivého momentu }{18}
+\Xsec{7.1}{Kotouče }{18}
+\Xlabel{vztahMoment}{(1)}
+\Xsec{7.2}{Elevace }{18}
+\Xlabel{momentsily2}{(2)}
+\Xlabel{rovZrych}{(3)}
+\Xpage{19}
+\Xlabel{rovZrych2}{(4)}
+\Xsec{7.3}{Azimut }{19}
+\Xpage{20}
+\Xlabel{programy}{8}
+\Xchap{8}{Tréninkové programy }{20}
+\Xfig{zony}{8.1}{Badmintonové hřiště - zóny dopadu míčků}
+\Xlabel{zony}{8.1}
+\Xpage{21}
+\Xsec{8.1}{Zadní část }{21}
+\Xfig{zadniStrely}{8.2}{Tréninkové programy - střelba do zadní části hřiště}
+\Xlabel{zadniStrely}{8.2}
+\Xsec{8.2}{Střední část 1 }{21}
+\Xpage{22}
+\Xfig{stredni}{8.3}{Tréninkové programy - střelba do střední části kurtu}
+\Xlabel{stredni}{8.3}
+\Xfig{obrana}{8.4}{Tréninkové programy - obrana ve střední části kurtu}
+\Xlabel{obrana}{8.4}
+\Xsec{8.3}{Na síť }{22}
+\Xpage{23}
+\Xfig{sit}{8.5}{Tréninkové programy - střelba na/za síť}
+\Xlabel{sit}{8.5}
+\Xsec{8.4}{Celý kurt }{23}
+\Xsec{8.5}{Na raketu }{23}
+\Xsec{8.6}{Příjem servisu }{23}
+\Xpage{24}
+\Xpage{25}
+\Xchap{9}{Prototyp 3 }{25}
+\Xsec{9.1}{Návrh konstrukce }{25}
+\Xsecc{9.1.1}{Kotouče }{25}
+\Xlabel{setrvacnost}{(1)}
+\Xsecc{9.1.2}{Podavač }{25}
+\Xpage{26}
+\Xsecc{9.1.3}{Nastavení směru }{26}
+\Xsec{9.2}{Návrh pohonů }{26}
+\Xsec{9.3}{Návrh řídicího systému }{26}
+\Xsecc{9.3.1}{Výpočetní jednotka }{26}
+\Xpage{27}
+\Xfig{raspi}{9.1}{Raspberry Pi \cite [raspi]}
+\Xlabel{raspi}{9.1}
+\Xsecc{9.3.2}{Výkonová jednotka }{27}
+\Xfig{mars}{9.2}{Výkonová jednotka.}
+\Xlabel{mars}{9.2}
+\Xpage{28}
+\Xsecc{9.3.3}{Ovládání a uživatelské rozhraní }{28}
+\Xpage{29}
+\Xchap{10}{Závěr }{29}
+\Xbib{knight}{1}{, }
+\Xbib{apollo}{2}{, }
+\Xbib{siboasi}{3}{, }
+\Xbib{br}{4}{, }
+\Xbib{raspi}{5}{, }
+\Xbib{Kurt}{6}{, }
+\Xbib{BPOndra}{7}{, }
+\Xbib{badmintonweb}{8}{, }
+\Xpage{30}
+\Xchap{!1}{Literatura}{30}
+\Xpage{31}
+\Xlabel{zkratky}{A}
+\Xchap{A}{Seznam zkratek }{31}
+\Xpage{32}
+\Xlabel{obsahcd}{B}
+\Xchap{B}{Obsah přiloženého CD }{32}
+\Xpage{33}
