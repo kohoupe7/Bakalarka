@@ -6,6 +6,8 @@
 \Xpage{-6}
 \Xpage{-7}
 \Xpage{-8}
+\Xpage{-9}
+\Xpage{-10}
 \Xpage{1}
 \Xchap{1}{Úvod }{1}
 \Xfig{picKurt}{1.1}{Badmintonový kurt.}
@@ -47,15 +49,15 @@
 \Xfig{podavace}{4.2}{Podávací ramena vytištěná na 3D tiskárně.}
 \Xlabel{podavace}{4.2}
 \Xsec{4.2}{Elektrické zapojení }{9}
+\Xfig{plc}{4.4}{PLC B\&R X20CP3586 \cite [br].}
+\Xlabel{plc}{4.4}
 \Xpage{10}
 \Xfig{schema}{4.3}{Schema zapojení rozvaděče.}
 \Xlabel{schema}{4.3}
-\Xfig{plc}{4.4}{PLC B\&R X20CP3586 \cite [br].}
-\Xlabel{plc}{4.4}
 \Xsec{4.3}{Dynamické parametry }{10}
 \Xsecc{4.3.1}{Parametry PID regulátorů polohy }{10}
+\Xsecc{4.3.2}{Elevace }{10}
 \Xpage{11}
-\Xsecc{4.3.2}{Elevace }{11}
 \Xfig{elevace1}{4.5}{Graf pohybu z polohy $-45^\circ $ do polohy $45^\circ $.}
 \Xlabel{elevace1}{4.5}
 \Xfig{elevace2}{4.6}{Graf pohybu z polohy $90^\circ $ do polohy $100^\circ $.}
@@ -63,110 +65,121 @@
 \Xfig{elevace3}{4.7}{Graf pohybu z polohy $90^\circ $ do polohy $100^\circ $ se sníženým zrychlením.}
 \Xlabel{elevace3}{4.7}
 \Xsecc{4.3.3}{Azimut }{11}
-\Xsecc{4.3.4}{Kotouče }{11}
-\Xpage{12}
 \Xfig{azimut}{4.8}{Graf pohybu z polohy $-15^\circ $ do polohy $10^\circ $.}
 \Xlabel{azimut}{4.8}
+\Xsecc{4.3.4}{Kotouče }{11}
+\Xpage{12}
 \Xfig{kotouc}{4.9}{Výkres kotouče.}
 \Xlabel{kotouc}{4.9}
 \Xlabel{momentsily}{(1)}
+\Xsecc{4.3.5}{Podavač }{12}
 \Xpage{13}
-\Xsecc{4.3.5}{Podavač }{13}
 \Xfig{podavac}{4.10}{Roztočení podavače}
 \Xlabel{podavac}{4.10}
 \Xsec{4.4}{Měření přesnosti úderů }{13}
 \Xsecc{4.4.1}{Statické měření střelby rovně před sebe }{13}
-\Xtab{mereni1}{4.1}{Naměřené hodnoty při střelbě rovně před sebe.}
+\Xtab{mereni1}{4.1}{Naměřené hodnoty při střelbě rovně před sebe do vzdálenosti 4~m.}
 \Xlabel{mereni1}{4.1}
 \Xpage{14}
-\Xsecc{4.4.2}{Dynamické měření přesnosti při střídání stran }{14}
-\Xtab{mereni2}{4.2}{Naměřené hodnoty při střídání stran.}
-\Xlabel{mereni2}{4.2}
-\Xsecc{4.4.3}{Dynamické měření přesnosti při střídání vzdálenosti }{14}
-\Xtab{mereni3}{4.3}{Naměřené hodnoty při střídání vzdálenosti.}
-\Xlabel{mereni3}{4.3}
-\Xsecc{4.4.4}{Závěr měření }{14}
+\Xtab{mereni11}{4.2}{Naměřené hodnoty při střelbě rovně před sebe do vzdálenosti 9,4~m.}
+\Xlabel{mereni11}{4.2}
+\Xtab{merenivzdalenost}{4.3}{Měření doletu v závislosti na otáčkách kotoučů.}
+\Xlabel{merenivzdalenost}{4.3}
+\Xsecc{4.4.2}{Měření závislosti doletu na otáčkách kotoučů }{14}
+\Xfig{grafDostrel}{4.11}{Závislost dostřelu na rychlosti otáčení kotoučů.}
+\Xlabel{grafDostrel}{4.11}
+\Xsecc{4.4.3}{Dynamické měření přesnosti při střídání stran }{14}
 \Xpage{15}
-\Xchap{5}{Algoritmus řízení }{15}
+\Xtab{mereni2}{4.4}{Naměřené hodnoty při střídání stran.}
+\Xlabel{mereni2}{4.4}
+\Xsecc{4.4.4}{Dynamické měření přesnosti při střídání vzdálenosti }{15}
+\Xtab{mereni3}{4.5}{Naměřené hodnoty při střídání vzdálenosti.}
+\Xlabel{mereni3}{4.5}
+\Xsecc{4.4.5}{Závěr měření }{15}
+\Xpage{16}
+\Xchap{5}{Algoritmus řízení }{16}
 \Xfig{AS}{5.1}{Vývojové prostředí Automation studio.}
 \Xlabel{AS}{5.1}
-\Xsec{5.1}{Struktura programu }{15}
-\Xpage{16}
+\Xsec{5.1}{Struktura programu }{16}
+\Xpage{17}
 \Xfig{diagram}{5.2}{Vývojový diagram automatického řízení.}
 \Xlabel{diagram}{5.2}
-\Xsec{5.2}{Výpočet doletu }{16}
+\Xsec{5.2}{Výpočet doletu }{17}
 \Xlabel{dolet}{(1)}
-\Xpage{17}
-\Xchap{6}{Uživatelské rozhraní }{17}
-\Xsec{6.1}{Volba a nastavení tréninkového programu }{17}
+\Xpage{18}
+\Xchap{6}{Uživatelské rozhraní }{18}
+\Xsec{6.1}{Volba a nastavení tréninkového programu }{18}
 \Xfig{volbaProgramu}{6.1}{Vizualizace - Výběr tréninkového programu}
 \Xlabel{volbaProgramu}{6.1}
-\Xpage{18}
+\Xpage{19}
 \Xfig{nastaveniProgramu}{6.2}{Vizualizace - Nastavení tréninkového programu}
 \Xlabel{nastaveniProgramu}{6.2}
 \Xfig{chod}{6.3}{Vizualizace - Chod programu}
 \Xlabel{chod}{6.3}
-\Xsec{6.2}{Chod tréninkového programu }{18}
-\Xpage{19}
+\Xsec{6.2}{Chod tréninkového programu }{19}
+\Xpage{20}
+\Xsec{6.3}{Manuální režim a servisní obrazovka }{20}
 \Xfig{manual}{6.4}{Vizualizace - Manuál}
 \Xlabel{manual}{6.4}
-\Xsec{6.3}{Manuální režim a servisní obrazovka }{19}
+\Xpage{21}
 \Xfig{servis}{6.5}{Vizualizace - Servis}
 \Xlabel{servis}{6.5}
-\Xpage{20}
+\Xpage{22}
 \Xlabel{tocmoment}{7}
-\Xchap{7}{Analýza točivého momentu }{20}
-\Xsec{7.1}{Kotouče }{20}
+\Xchap{7}{Analýza točivého momentu }{22}
+\Xsec{7.1}{Kotouče }{22}
 \Xlabel{vztahMoment}{(1)}
-\Xsec{7.2}{Elevace }{20}
+\Xsec{7.2}{Elevace }{22}
 \Xlabel{momentsily2}{(2)}
-\Xpage{21}
+\Xpage{23}
 \Xlabel{rovZrych}{(3)}
 \Xlabel{rovZrych2}{(4)}
-\Xsec{7.3}{Azimut }{21}
-\Xpage{22}
-\Xlabel{programy}{8}
-\Xchap{8}{Tréninkové programy }{22}
-\Xfig{zony}{8.1}{Badmintonové hřiště - zóny dopadu míčků}
-\Xlabel{zony}{8.1}
-\Xpage{23}
-\Xsec{8.1}{Zadní část }{23}
-\Xfig{zadniStrely}{8.2}{Tréninkové programy - střelba do zadní části hřiště}
-\Xlabel{zadniStrely}{8.2}
-\Xsec{8.2}{Střední část }{23}
+\Xsec{7.3}{Azimut }{23}
 \Xpage{24}
+\Xlabel{programy}{8}
+\Xchap{8}{Tréninkové programy }{24}
+\Xfig{zony}{8.1}{Badmintonový kurt - zóny dopadu míčků}
+\Xlabel{zony}{8.1}
+\Xpage{25}
+\Xsec{8.1}{Zadní část }{25}
+\Xfig{zadniStrely}{8.2}{Tréninkové programy - střelba do zadní části kurtu}
+\Xlabel{zadniStrely}{8.2}
+\Xsec{8.2}{Střední část }{25}
+\Xpage{26}
 \Xfig{stredni}{8.3}{Tréninkové programy - střelba do střední části kurtu}
 \Xlabel{stredni}{8.3}
 \Xfig{obrana}{8.4}{Tréninkové programy - obrana ve střední části kurtu}
 \Xlabel{obrana}{8.4}
-\Xsec{8.3}{Na síť }{24}
-\Xpage{25}
+\Xsec{8.3}{Na síť }{26}
+\Xpage{27}
 \Xfig{sit}{8.5}{Tréninkové programy - střelba na/za síť}
 \Xlabel{sit}{8.5}
-\Xsec{8.4}{Celý kurt }{25}
-\Xsec{8.5}{Na raketu }{25}
-\Xsec{8.6}{Příjem servisu }{25}
-\Xpage{26}
-\Xchap{9}{Prototyp 3 }{26}
-\Xsec{9.1}{Návrh konstrukce }{26}
-\Xsecc{9.1.1}{Kotouče }{26}
-\Xlabel{setrvacnost}{(1)}
-\Xsecc{9.1.2}{Podavač }{26}
-\Xpage{27}
-\Xsecc{9.1.3}{Nastavení směru }{27}
-\Xsec{9.2}{Návrh pohonů }{27}
-\Xsec{9.3}{Návrh řídicího systému }{27}
-\Xsecc{9.3.1}{Výpočetní jednotka }{27}
+\Xsec{8.4}{Celý kurt }{27}
+\Xsec{8.5}{Na raketu }{27}
+\Xsec{8.6}{Příjem servisu }{27}
 \Xpage{28}
-\Xfig{raspi}{9.1}{Raspberry Pi \cite [raspi]}
-\Xlabel{raspi}{9.1}
-\Xsecc{9.3.2}{Výkonová jednotka }{28}
-\Xsecc{9.3.3}{Ovládání a uživatelské rozhraní }{28}
 \Xpage{29}
-\Xfig{mars}{9.2}{Výkonová jednotka.}
-\Xlabel{mars}{9.2}
+\Xchap{9}{Prototyp 3 }{29}
+\Xsec{9.1}{Návrh konstrukce }{29}
+\Xsecc{9.1.1}{Kotouče }{29}
+\Xlabel{setrvacnost}{(1)}
+\Xsecc{9.1.2}{Podavač }{29}
 \Xpage{30}
-\Xchap{10}{Závěr }{30}
+\Xsecc{9.1.3}{Nastavení směru }{30}
+\Xsec{9.2}{Návrh pohonů }{30}
+\Xsec{9.3}{Návrh řídicího systému }{30}
+\Xsecc{9.3.1}{Výkonová jednotka }{30}
+\Xpage{31}
+\Xfig{mars}{9.1}{Výkonová jednotka.}
+\Xlabel{mars}{9.1}
+\Xpage{32}
+\Xsecc{9.3.2}{Výpočetní jednotka }{32}
+\Xfig{raspi}{9.2}{Raspberry Pi \cite [raspi]}
+\Xlabel{raspi}{9.2}
+\Xpage{33}
+\Xsecc{9.3.3}{Ovládání a uživatelské rozhraní }{33}
+\Xpage{34}
+\Xchap{10}{Závěr }{34}
 \Xbib{knight}{1}{, }
 \Xbib{apollo}{2}{, }
 \Xbib{siboasi}{3}{, }
@@ -175,12 +188,13 @@
 \Xbib{Kurt}{6}{, }
 \Xbib{BPOndra}{7}{, }
 \Xbib{badmintonweb}{8}{, }
-\Xpage{31}
-\Xchap{!1}{Literatura}{31}
-\Xpage{33}
-\Xlabel{zkratky}{A}
-\Xchap{A}{Seznam zkratek }{33}
-\Xpage{34}
-\Xlabel{obsahcd}{B}
-\Xchap{B}{Obsah přiloženého CD }{34}
+\Xbib{mars}{9}{, }
 \Xpage{35}
+\Xchap{!1}{Literatura}{35}
+\Xpage{37}
+\Xlabel{zkratky}{A}
+\Xchap{A}{Seznam zkratek }{37}
+\Xpage{38}
+\Xlabel{obsahcd}{B}
+\Xchap{B}{Obsah přiloženého CD }{38}
+\Xpage{39}

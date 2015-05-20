@@ -33,7 +33,9 @@ První prototyp neměl nastavitelný azimut ani elevaci odpalu, a proto byl pro 
 \sec Řízení
 
 K řízení bylo použito PLC firmy B\&R X20CP1485. Toto PLC mělo poměrně malou paměť RAM, z tohoto důvodu mohlo být ovládací rozhraní pouze s rozlišením 320~x~240. Motory byly řízeny pomocí servozesilovačů ACOPOS 8V1010. Tyto servozesilovače měly dvě rozšiřující karty. Karta AC114 slouží pro komunikaci přes sběrnici POWERLINK a zajišťuje komunikace s PLC. Druhá použitá karta je resolverová karta AC122 a slouží k zajištění polohové zpětné vazby od motorů. 
-
+\nl
+\nl
+Řídicí program byl napsán ve vývojovém prostředí Automation studio. Projekt byl rozdělen do několika částí balíčků. Balíček Hlavni\_motor, Prevodovka a Odpalovani sloužily k řízení jednotlivých motorů. Dále v balíčku Ostatni byly fukce starající se o chod celého stroje. Funkce KontrolAut se starala o chod automatických programů a jednalo se o jednoduchý stavový automat. Další funkcí byla funkce KontrolServis, která zajišťovala řízení stroje v manuálním režimu. Opět se jednalo o stavový automat. Ovládací rozhaní bylo implementováno pomocí VNC serveru, mělo rozlišení 320x240 a bylo umístěno v balíčku Vizualizace.
 
 
 
@@ -118,7 +120,7 @@ Dále bylo třeba vyztužit celou konstrukci, jelikož byla nestabilní a při r
 
 \secc Ladění podavače
 
-Po detailním zkoumání podavače bylo rozhodnuto, že tvar podávacího ramene je nevyhovující. Pro určení správného tvaru byla využita technologie 3D tisku. Bylo vyzkoušeno několik různých tvarů podávacího ramene viz. Obrázek \ref[podavace]. Nakonec byl vybrán tvar, který je uveden na obrázku \ref[podavace] vpravo. Tento tvar byl vybrán proto, že při nabírání košíku nedochází k zasekávání podavače a míček je poté dopraven mezi kotouče vždy stejně.
+Po detailním zkoumání podavače bylo rozhodnuto, že tvar podávacího ramene je nevyhovující. Pro určení správného tvaru byla využita technologie 3D tisku. Bylo vyzkoušeno několik různých tvarů podávacího ramene (viz Obrázek \ref[podavace]). Nakonec byl vybrán tvar, který je uveden na obrázku \ref[podavace] vpravo. Tento tvar byl vybrán proto, že při nabírání košíku nedochází k zasekávání podavače a míček je poté dopraven mezi kotouče vždy stejně, navíc nedochází k otrhávání peří.
 
 \midinsert \clabel[podavace]{Podávací ramena vytištěná na 3D tiskárně.}
 \picw=10cm \cinspic pic/podavace.jpg
@@ -177,11 +179,11 @@ Z obrázku \ref[elevace1] vyplývá, že pohyb z polohy $-45^\circ$ do polohy $4
    \par}}
 \endinsert
 
-Z požadavků na tréninkové programy viz. Kapitola \ref[programy] vyplývá, že maximální požadovaná změna elevace je asi $45^\circ$. Tuto změnu stroj zvládne přibližně za 0,5~s.
+Z požadavků na tréninkové programy (viz Kapitola \ref[programy]) vyplývá, že maximální požadovaná změna elevace je asi $45^\circ$. Tuto změnu stroj zvládne přibližně za 0,5~s.
 
 \secc Azimut
 
-Dynamické parametry azimutové osy jsou o něco horší, celý stroj je totiž celkem težký a takto slabý motor nedokáže zajistit požadované zrychlení. Motor pro nastavení azimutu má pouze 0,2~Nm, což nestačí ani pro udržení polohy, proto motor dokáže pracovat přibližně minutu, poté již je teplota motoru kritická a servozesilovač motor odpojí. Při přesunu o $25^\circ$ dostáváme hodnotu 2~s. Bohužel pohyb je velmi pomalý z důvodu malého zrychlení (viz. Obrázek \ref[azimut]), při nastavení vyššího zrychlení se motor přehřeje hned po několika provedených pohybech s tímto zrychlením.
+Dynamické parametry azimutové osy jsou o něco horší, celý stroj je totiž celkem težký a takto slabý motor nedokáže zajistit požadované zrychlení. Motor pro nastavení azimutu má pouze 0,2~Nm, což nestačí ani pro udržení polohy, proto motor dokáže pracovat přibližně minutu, poté již je teplota motoru kritická a servozesilovač motor odpojí. Při přesunu o $25^\circ$ dostáváme hodnotu 2~s. Bohužel pohyb je velmi pomalý z důvodu malého zrychlení (viz Obrázek \ref[azimut]), při nastavení vyššího zrychlení se motor přehřeje hned po několika provedených pohybech s tímto zrychlením.
 
 \midinsert \clabel[azimut]{Graf pohybu z polohy $-15^\circ$ do polohy $10^\circ$.}
 \picw=8cm \cinspic pic/azimut_poloha.JPG
@@ -190,7 +192,7 @@ Dynamické parametry azimutové osy jsou o něco horší, celý stroj je totiž 
 
 \secc Kotouče
 
-Požadavky na zrychlení kotoučů, opět vyplývají z kapitoly \ref[programy]. V nejrychlejším režimu je potřeba měnit otáčky v rozsahu přibližně 2000~RPM za sekundu. Tuto změnu otáček by, v ideálním případě, bylo potřeba stihnout za 0,3~s. Teoretické parametry vyplývají z momentu setrvačnosti kotouče a motoru a točivého momentu motoru. Moment setrvačnosti kotouče vyplývá z rozměrů viz Obrázek \ref[kotouc] a hmotnosti kotouče. K tomuto momentu setrvačnosti musíme připočítat moment setrvačnosti rotoru.
+Požadavky na zrychlení kotoučů, opět vyplývají z kapitoly \ref[programy]. V nejrychlejším režimu je potřeba měnit otáčky v rozsahu přibližně 2000~RPM za sekundu. Tuto změnu otáček by, v ideálním případě, bylo potřeba stihnout za 0,3~s. Teoretické parametry vyplývají z momentu setrvačnosti kotouče a motoru a točivého momentu motoru. Moment setrvačnosti kotouče vyplývá z rozměrů (viz Obrázek \ref[kotouc]) a hmotnosti kotouče. K tomuto momentu setrvačnosti musíme připočítat moment setrvačnosti rotoru.
 
 \midinsert \clabel[kotouc]{Výkres kotouče.}
 \picw=14cm \cinspic pic/kotouc.jpg
@@ -202,12 +204,12 @@ Maximální zrychlení je dáno vztahem \ref[momentsily].
 
 \label[momentsily]
 $$\alpha={{M}\over{J}} \eqmark $$
-Kde $\alpha$ je úhlové zrychlení, M je moment síly a J je moment sertvačnosti. Moment síly dostáváme z dokumentace k motoru, kde jsme zjistili, že maximální stálý moment je 0,2~Nm a maximální špičkový moment je 0,8~Nm. Vzhledem k tomu, že rychlost otáčení měníme pouze jednou během jednoho výstřelu a v případě tohoto prototypu je maximální perioda výstřelů okolo 1~s, můžeme počítat s momentem síly blížícím se maximálnímu špičkovému zatížení. V našem případě použijeme 0,7~Nm. Jako maximální zrychlení tedy po dosazení do vztahu \ref[momentsily] dostáváme hodnotu $339,25~rad\cdot s^{-2}$ tedy $3240~{{ot}\over{min\cdot s}}$. 
+Kde $\alpha$ je úhlové zrychlení, M je moment síly a J je moment sertvačnosti. Moment síly dostáváme z dokumentace k motoru, kde jsme zjistili, že maximální stálý moment je 0,2~Nm a maximální špičkový moment je 0,8~Nm. Vzhledem k tomu, že rychlost otáčení měníme pouze jednou během jednoho výstřelu a v případě tohoto prototypu je maximální perioda výstřelů okolo 1~s, můžeme počítat s momentem síly blížícím se maximálnímu špičkovému zatížení. V našem případě použijeme 0,7~Nm. Jako maximální zrychlení tedy po dosazení do vztahu \ref[momentsily] dostáváme hodnotu $339,25~rad\cdot s^{-2}$.
 
 
 \secc Podavač
 
-Požadavky na podavač, které jsou dány v kapitole \ref[programy], jsou velmi náročné. V nejrychlejším režimu je potřeba střílet 3 míčky za vteřinu. Této rychlosti nejsme schopni dosáhnout, pokud budeme po každém výstřelu podavač zastavovat, ale můžeme jí dosáhnout pouze v případě, že podavač roztočíme na potřebnou rychlost a vystřílíme všechny míčky najednou. V tomto režimu chvíli trvá než se podavač roztočí na požadovanou rychlost viz. Obrázek \ref[podavac]. Maximální zrychlení je opět dáno momentem setrvačnosti a točivým momentem motoru. 
+Požadavky na podavač, které jsou dány v kapitole \ref[programy], jsou velmi náročné. V nejrychlejším režimu je potřeba střílet 3 míčky za vteřinu. Této rychlosti nejsme schopni dosáhnout, pokud budeme po každém výstřelu podavač zastavovat, ale můžeme jí dosáhnout pouze v případě, že podavač roztočíme na potřebnou rychlost a vystřílíme všechny míčky najednou. V tomto režimu chvíli trvá než se podavač roztočí na požadovanou rychlost (viz Obrázek \ref[podavac]). Maximální zrychlení je opět dáno momentem setrvačnosti a točivým momentem motoru. 
 
 \midinsert \clabel[podavac]{Roztočení podavače}
 \picw=5cm \cinspic pic/podavac_roztoceni.JPG
@@ -216,36 +218,71 @@ Požadavky na podavač, které jsou dány v kapitole \ref[programy], jsou velmi 
 
 \sec Měření přesnosti úderů
 
-\rfc{Naměřit na kurtu a dodělat.}
-
-Úkolem tohoto měření bylo zjistit přesnost úderů v různých situacích. Samotné měření bylo rozděleno na čtyři části. V každé z těchto částí bylo určeno několik poloh, do kterých se stroj trefoval a byla měřena vzdálenost dopadu míčku od cílového bodu. Každé měření bylo provedeno několikrát, aby se eliminovala chyba měření. Cílem těchto měření bylo zjistit, zda je výpočet dostřelu, použitý v automatických režimech, dostatečně přesný.
+Úkolem tohoto měření bylo zjistit přesnost úderů v různých situacích. Samotné měření bylo rozděleno na čtyři části. V každé z těchto částí bylo určeno několik poloh, do kterých se stroj trefoval a byla měřena vzdálenost dopadu míčku od cílového bodu. Každé měření bylo provedeno několikrát, aby se eliminovala chyba měření. Cílem těchto měření bylo zjistit, zda je výpočet dostřelu, použitý v automatických režimech, dostatečně přesný a zjistit závislost doletu míčku na otáčkách kotoučů.
 
 \secc Statické měření střelby rovně před sebe
 
-V prvním měření byl určen pouze jeden bod a stroj střílel přímo před sebe. Určená vzdálenost byla 4~m. Tímto se určí závislost rozptylu na konkrétním míčku. 
+V prvním měření byl určen pouze jeden bod a stroj střílel přímo před sebe. Určená vzdálenost byla 4~m při prvním měření a 9,4~m při druhém měření. Podle teoretického výpočtu dostřelu 4~m odpovídají otáčky 1000~RPM při elevaci $45^\circ$. Dostřelu 8~m odpovídají otáčky 3500~RPM. Tímto se určí závislost rozptylu na konkrétním míčku. 
 
-\midinsert \clabel[mereni1]{Naměřené hodnoty při střelbě rovně před sebe.}
+\midinsert \clabel[mereni1]{Naměřené hodnoty při střelbě rovně před sebe do vzdálenosti 4~m.}
 \ctable{ccc}{
- \hfil Míček & Vzdálenost od cílového bodu\crl \tskip4pt
-  1 & ano \cr
-  2 & ano \cr 
-  3 & ano \cr 
-  4 & ano \cr 
-  5 & ano \cr 
-  6 & ano \cr
-  7 & ano \cr 
-  8 & ano \cr 
-  9 & ano \cr 
-  10 & ano \cr 
+ \hfil Míček & Vzdálenost od cílového bodu [cm] \crl \tskip4pt
+  1 & 25 \cr
+  2 & 25 \cr 
+  3 & 35 \cr 
+  4 & 27 \cr 
+  5 & 25 \cr 
 }
-\caption/t Naměřené hodnoty při střelbě rovně před sebe.
+\caption/t Naměřené hodnoty při střelbě rovně před sebe do vzdálenosti 4~m.
 \endinsert
 
-Průměrná vzdálenost dopadu míčku od cílového bodu je \rfc{mereni}. 
+Průměrná vzdálenost dopadu míčku od cílového bodu je 27,4~cm, rozptyl naměřených hodnot je $14,44~cm^2$.
+
+\midinsert \clabel[mereni11]{Naměřené hodnoty při střelbě rovně před sebe do vzdálenosti 9,4~m.}
+\ctable{ccc}{
+ \hfil Míček & Vzdálenost od cílového bodu [cm] \crl \tskip4pt
+  1 & 13 \cr
+  2 & 20 \cr 
+  3 & 45 \cr 
+  4 & 13 \cr 
+  5 & 40 \cr 
+}
+\caption/t Naměřené hodnoty při střelbě rovně před sebe do vzdálenosti 9,4~m.
+\endinsert
+
+Průměrná vzdálenost dopadu míčku od cílového bodu je 26,2~cm, rozptyl naměřených hodnot je $186,16~cm^2$.
+
+Jak je vidět z naměřených hodnot, tak při střelbě do větší vzdálenosti se zvětšuje také rozptyl a to z toho důvodu, že při zvyšující se době letu se více projeví rozdíly mezi jednotlivými košíky.
+
+\secc Měření závislosti doletu na otáčkách kotoučů
+
+\midinsert \clabel[merenivzdalenost]{Měření doletu v závislosti na otáčkách kotoučů.}
+\ctable{ccc}{
+ \hfil Otáčky [RPM] & Dolet [m] \crl \tskip4pt
+  250 & 0,93 \cr
+  500 & 2,435 \cr 
+  750 & 3,675 \cr 
+  1000 & 4,27 \cr 
+  1500 & 6,28 \cr 
+  2000 & 7,54 \cr 
+  2500 & 8,47 \cr 
+  3000 & 8,83 \cr 
+  3500 & 9,2 \cr 
+  4000 & 9,35 \cr 
+}
+\caption/t Měření doletu v závislosti na otáčkách kotoučů.
+\endinsert
+
+Závislost dostřelu na otáčkách kotoučů je uvedena na obrázku \ref[grafDostrel].
+
+\midinsert \clabel[grafDostrel]{Závislost dostřelu na rychlosti otáčení kotoučů.}
+\picw=14cm \cinspic pic/dostrel.JPG
+\caption/f Závislost dostřelu na rychlosti otáčení kotoučů.
+\endinsert
 
 \secc Dynamické měření přesnosti při střídání stran
 
-V druhém měření byly určeny dva body vzdálené 4,5~m od sebe a ve vzdálenosti 4~m od sítě viz. Obrázek \ref[merenipic1]. Stroj střídal strany a střílel postupně na oba body. 
+V druhém měření byly určeny dva body vzdálené 4,5~m od sebe a ve vzdálenosti 4~m od sítě (viz Obrázek \ref[merenipic1]). Stroj střídal strany a střílel postupně na oba body. 
 
 \midinsert \clabel[mereni2]{Naměřené hodnoty při střídání stran.}
 \ctable{cccc}{
@@ -296,7 +333,7 @@ Z naměřených hodnot vyplývá že vztah použitý pro výpočet doletu je pro
 
 \chap Algoritmus řízení
 
-V této kapitole je popsána struktura řídicího programu. Použité PLC se dá programovat v několika jazycích, já k programování zvolil strukturovaný text a B\&R Automation Basic. K programování je použit software Automation studio viz. Obrázek \ref[AS]. Dále je zde popsán výpočet teoretického doletu míčku a popis vývojového diagramu automatického režimu.
+V této kapitole je popsána struktura řídicího programu. Použité PLC se dá programovat v několika jazycích, já k programování zvolil strukturovaný text a B\&R Automation Basic. K programování je použit software Automation studio (viz Obrázek \ref[AS]). Dále je zde popsán výpočet teoretického doletu míčku a popis vývojového diagramu automatického režimu.
 
 \midinsert \clabel[AS]{Vývojové prostředí Automation studio.}
 \picw=15cm \cinspic pic/automationstudio.jpg
@@ -339,7 +376,7 @@ Pro běžný provoz je použit automatický režim. V tomto režimu je na výbě
 \caption/f Vizualizace - Výběr tréninkového programu.
 \endinsert
 
-Po vybrání tréninkového programu je možnost nastavit jednotlivé parametry programu jako je rychlost kotoučů, perioda odpalu nebo například počet míčků k odpalu viz Obrázek \ref[nastaveniProgramu]. 
+Po vybrání tréninkového programu je možnost nastavit jednotlivé parametry programu jako je rychlost kotoučů, perioda odpalu nebo například počet míčků k odpalu (viz Obrázek \ref[nastaveniProgramu]). 
 
 \midinsert \clabel[nastaveniProgramu]{Vizualizace - Nastavení tréninkového programu}
 \picw=11cm \cinspic pic/nastaveni_programu.JPG
@@ -357,6 +394,8 @@ Po spuštění některého z automatických režimů je po celou dobu tréninku 
 \endinsert
 
 Z Obrázku \ref[chod] je vidět, že jsou zde i některé základní parametry režimu.
+
+Při chodu tréninkového programu je potřeba aby se trenér ani hráč nemuseli zabývat případnými chybami pohonů. Proto muselo být vyřešeno jak se z takovéto chyby automaticky zotavit. O zotavení z chyby se stará fukce pro automatické potvrzování chyby. Tato funkce je implementována v obsužné funkci ke každému z motorů. Pokud dojde v odstavení některého z motorů kvůli chybě a zároveň je požadavek na pohyb tohoto motoru, automaticky se spustí funkce, která chybu potvrdí a pokusí se znovu spustit motor. V případě že se automatické potvrzení povede, tak uživatel zaznamená pouze velmi krátký výpadek.
 
 \sec Manuální režim a servisní obrazovka
 
@@ -385,7 +424,7 @@ Obsahem této kapitoly je podrobná analýza točivého momentu na jednotlivých
 Jak již bylo uvedeno v kapitole \ref[prototyp2], maximální rychlost kotoučů, která má smysl, je 4000~RPM. Při vyšších rychlostech otáčení totiž míček při dotyku s povrchem kotouče prokluzuje a rychlost odpalu se nezvyšuje. Dále z kapitoly \ref[programy] vyplývá, že je potřeba vešteré změny rychlosti stihnout za 1~s. Velký moment je zapotřebí pouze při změně rychlosti otáčení kotoučů. Největší změny jsou při střídání střelby do zadní části kurtu a blízko sítě. Při takovémto režimu dochází ke změně otáček asi o 2000~RPM. Potřebný točivý moment motoru vypočítáme podle vzorce \ref[vztahMoment].
 \label[vztahMoment]
 $$M=\alpha \cdot J \eqmark $$
-kde M je moment síly potřebný pro požadované zrychlení v Nm. J je moment setrvačnosti kotouče a rovná se $2063,4~kg\cdot mm^2$ viz kapitola \ref[prototyp2], je potřeba jej dosazovat v jednotce $kg\cdot mm^2$ a $\alpha$ je úhlové zrychlení, které vyplývá z uvedených hodnot a je rovno $209,44~rad\cdot s^{-2}$. Úhlové zrychlení je potřeba dosazovat v $rad\cdot s^{-2}$.
+kde M je moment síly potřebný pro požadované zrychlení v Nm. J je moment setrvačnosti kotouče a rovná se $2063,4~kg\cdot mm^2$ (viz kapitola \ref[prototyp2]), je potřeba jej dosazovat v jednotce $kg\cdot mm^2$ a $\alpha$ je úhlové zrychlení, které vyplývá z uvedených hodnot a je rovno $209,44~rad\cdot s^{-2}$. Úhlové zrychlení je potřeba dosazovat v $rad\cdot s^{-2}$.
 
 Po převedení na správné jednotky a dosazení do vztahu \ref[vztahMoment] je tedy minimální požadovaný točivý moment motoru 0,432~Nm.
 
@@ -398,7 +437,7 @@ $$\alpha={{M}\over{J}} \eqmark $$
 
 Po dosazení dostáváme hodnotu $J=42444,8~kg\cdot mm^2$. Tato hodnota je samozřejmě pouze velmi hrubým odhadem dané veličiny, ale pro naše účely je tento odhad dostatečný. 
 
-Z kapitoly \ref[programy] dostaneme nejvyšší změnu elevace, a za jaký čas je potřeba tuto změnu stihnout. Nejnáročnější na změnu elevace bude opět režim při kterém je zapotřebí pokrýt celý kurt, zde je nutné stíhat měnit elevaci v rozsahu asi $45^\circ$ az $65^\circ$, tedy o $20^\circ$. Tuto změnu je potřeba provést za 1~s. Požadované úhlové zrychlení určíme ze vztahu pro dráhu rovnoměrně zrychleného pohybu viz. rovnice \ref[rovZrych].
+Z kapitoly \ref[programy] dostaneme nejvyšší změnu elevace, a za jaký čas je potřeba tuto změnu stihnout. Nejnáročnější na změnu elevace bude opět režim při kterém je zapotřebí pokrýt celý kurt, zde je nutné stíhat měnit elevaci v rozsahu asi $45^\circ$ az $65^\circ$, tedy o $20^\circ$. Tuto změnu je potřeba provést za 1~s. Požadované úhlové zrychlení určíme ze vztahu pro dráhu rovnoměrně zrychleného pohybu (viz rovnice \ref[rovZrych]).
 
 \label[rovZrych]
 $$s={1\over 2} \cdot \epsilon \cdot t^2 \eqmark $$
@@ -411,11 +450,11 @@ Po dosazení do vztahu \ref[rovZrych2] dostáváme požadované zrychlení $80~^
 
 \sec Azimut
 
-Podobně jako u elevace tak ani u azimutu neznáme přesnou hodnotu momentu setrvačnosti, takže jej musíme odhadnout stejným způsobem. Nastavené zrychlení, které stroj ještě zvládá, i když krátkodobě, je $45~{{ot}\over{min\cdot s}}$ to znamená $4,71~rad\cdot s^{-2}$. Použitý motor má stálý moment 0,2~Nm a špičkový 0,8~Nm. Vzhledem k tomu, že motor vydrží pracovat jen krátkodobě, tak budeme pracovat se špičkovým momentem.
+Podobně jako u elevace tak ani u azimutu neznáme přesnou hodnotu momentu setrvačnosti, takže jej musíme odhadnout stejným způsobem. Nastavené zrychlení, které stroj ještě zvládá, i když krátkodobě, je $45~{{ot}\over{min\cdot s}}$ to znamená $4,71~rad\cdot s^{-2}$. Na osu azimutu je použit slabší motor než na osu elevace z toho důvodu, že silnější motor má větší rozměry a tak se motor do mechanické konstrukce nevejde. Použitý motor má stálý moment 0,2~Nm a špičkový 0,8~Nm. Vzhledem k tomu, že motor vydrží pracovat jen krátkodobě, tak budeme pracovat se špičkovým momentem.
 
 Opět dosadíme do vztahu \ref[momentsily2] a dostáváme hodnotu momentu setrvačnosti $169851,4~kg\cdot mm^2$. Opět se ale jedná pouze o hrubý odhad.
 
-Nejvyší změna azimutu je z hodnoty $-60^\circ$ na hodnotu $60^\circ$, tedy o $120^\circ$. Tuto změnu je opět potřeba sihnout za 1~s. Po dosazení do vztahu \ref[rovZrych2] dostáváme požadované zrychlení $8,378~rad\cdot s^{-2}$. Zde už se jedná o celkem vysoké zrychlení, což se také projeví na požadovaném točivém momentu, který dostaneme dosazením požadovaného zrychlení a momentu setrvačnosti do vztahu \ref[vztahMoment]. Po provedení výpočtu dostáváme hodnotu 1,423~Nm.
+Nejvyší změna azimutu je z hodnoty $-60^\circ$ na hodnotu $60^\circ$, tedy o $120^\circ$. Tuto změnu je opět potřeba sihnout za 1~s. Tuto hodnotu bohužel kvůli parametrům motoru nejsme schopni dosáhnout. Po dosazení do vztahu \ref[rovZrych2] dostáváme požadované zrychlení $8,378~rad\cdot s^{-2}$. Zde už se jedná o celkem vysoké zrychlení, což se také projeví na požadovaném točivém momentu, který dostaneme dosazením požadovaného zrychlení a momentu setrvačnosti do vztahu \ref[vztahMoment]. Po provedení výpočtu dostáváme hodnotu 1,423~Nm.
 
 
 
@@ -423,13 +462,13 @@ Nejvyší změna azimutu je z hodnoty $-60^\circ$ na hodnotu $60^\circ$, tedy o 
 \label[programy]
 \chap Tréninkové programy
 
-Požadavky na stroj byly konzultovány s badmintonovým trenérem Mgr. Michalem Turoňem a podle těchto požadavků a možností stroje byly sestaveny jednotlivé automatické režimy. U každého z dále uvedených programů jsou uvedeny ideální parametry a parametry, kterých je schopen tento prototyp dosáhnout.
+Požadavky na stroj byly konzultovány s badmintonovým trenérem Mgr. Michalem Turoňem a podle těchto požadavků a možností stroje byly sestaveny jednotlivé automatické režimy. Všechny tyto režimy byly implementovány do stroje. U každého z dále uvedených programů jsou uvedeny ideální parametry a parametry, kterých je schopen tento prototyp dosáhnout. Dále je také uvedeno s jakým omezením je který program implementován.
 
-Tréninkové programy jsou rozděleny podle části hřiště, do které jsou stříleny míčky. Jednotlivé zóny jsou znázorněny na obrázku \ref[zony].
+Tréninkové programy jsou rozděleny podle části kurtu, do které jsou stříleny míčky. Jednotlivé zóny jsou znázorněny na obrázku \ref[zony].
 
-\midinsert \clabel[zony]{Badmintonové hřiště - zóny dopadu míčků}
+\midinsert \clabel[zony]{Badmintonový kurt - zóny dopadu míčků}
 \picw=11cm \cinspic pic/zony.JPG
-\caption/f Badmintonové hřiště - zóny dopadu míčků.
+\caption/f Badmintonový kurt - zóny dopadu míčků.
 \endinsert
 
 V badmintonu existuje několik druhů úderů, které je potřeba procvičit. Každý typ úderu vyžaduje jinou křivku letu a jinou razanci úderu. 
@@ -441,33 +480,33 @@ Prvním automatickým režimem je střelba do zadní části kurtu. Při tomto r
 
 V zadní části se procvičují tři druhy úderů. První z nich je {\bf Klír}. Jedná se o úder ze zadní části kurtu, který letí obloukem do zadní části soupeřovy poloviny \cite[badmintonweb]. Přihrávka na tento úder tedy pochopitelně musí letět do zadní části. Tato přihrávka letí obloukem na zadní čáru. Při testování na kurtu byl určen jako ideální úhel elevace $60^\circ$. 
 
-Dalším z úderů procvičovaných v zadní části je {\bf Drop}. Tento úder je odehrán, podobně jako Klír, ze zadní části hřiště s tím rozdílem, že po odehrání košík dopadá v blízkosti sítě \cite[badmintonweb]. Přihrávka na tento úder je téměř stejná, jako při přihrávce na Klír.
+Dalším z úderů procvičovaných v zadní části je {\bf Drop}. Tento úder je odehrán, podobně jako Klír, ze zadní části kurtu s tím rozdílem, že po odehrání košík dopadá v blízkosti sítě \cite[badmintonweb]. Přihrávka na tento úder je téměř stejná, jako při přihrávce na Klír.
 
 Posledním z úderů, procvičovaných ze zadní části hříště, je {\bf Smeč}. Smeč je velmi prudký úder letící šikmo dolů do soupeřovy poloviny kurtu \cite[badmintonweb]. Přihrávka na smeč opět letí velkým obloukem na zadní čáru. 
 
-\midinsert \clabel[zadniStrely]{Tréninkové programy - střelba do zadní části hřiště}
+\midinsert \clabel[zadniStrely]{Tréninkové programy - střelba do zadní části kurtu}
 \picheight=4cm \cinspic pic/zadni.jpg
-\caption/f Tréninkové programy - střelba do zadní části hřiště.
+\caption/f Tréninkové programy - střelba do zadní části kurtu.
 \endinsert
 
-Při střelbě do zadní části kurtu by měl stroj ideálně střílet přibližně jeden míček za sekundu v závislosti na obtížnosti programu. Dále by měl stroj střídat strany, na kterou míček letí, a to buď pravidelně, nebo nepravidelně. Možnosti jsou střílet z jedné strany hřiště nebo z prostřed hřiště. Další možností je použít dva stroje, každý na jedné straně hřiště, které budou střílet přímo před sebe, případně křížem viz obrázek \ref[zadniStrely]. Z toho také vyplývá požadavek na rychlost změny azimutu, která by se měla stihnout dřív, než bude vypálen další míček. 
+Při střelbě do zadní části kurtu by měl stroj ideálně střílet přibližně jeden míček za sekundu v závislosti na obtížnosti programu. Dále by měl stroj střídat strany, na kterou míček letí, a to buď pravidelně, nebo nepravidelně. Možnosti jsou střílet z jedné strany, nebo z prostřed kurtu. Další možností je použít dva stroje, každý na jedné straně kurtu, které budou střílet přímo před sebe, případně křížem (viz obrázek \ref[zadniStrely]). Z toho také vyplývá požadavek na rychlost změny azimutu, která by se měla stihnout dřív, než bude vypálen další míček. 
 
-Protože je potřeba střílet přes celé hřiště, tak je nutná i poměrně vysoká rychlost otáček kotoučů. Při testování na kurtu je jednalo o obvodovou rychlost přibližně 45~$m\cdot~s^{-1}$. 
+Protože je potřeba střílet přes celý kurt, tak je nutná i poměrně vysoká rychlost otáček kotoučů. Při testování na kurtu je jednalo o obvodovou rychlost přibližně 45~$m\cdot~s^{-1}$. 
 
-S druhým prototypem jsme schopni dosáhnout periody \rfc{perioda} hlavně kvůli nastavení azimutu, které je velmi pomalé. 
+S druhým prototypem jsme schopni dosáhnout pouze periody 5~s hlavně kvůli nastavení azimutu, které je velmi pomalé. Implementace ve stroji pokrývá přihrávku na všechny tři údery hrané ze zadní části kurtu a pokrývá všechny možnosti nastavení směru na obrázku \ref[zadniStrely]. Jediné omezení tohoto režimu je perioda ve variantách, u kterých je potřeba měnit směr odpalu.
 
 \sec Střední část 
 
-Druhý režim je pro střelbu do střední části hřiště. Hráč procvičuje odehrání míčů, které padají do hříště mezi první a zadní čárou. Prvním úderem, který se procvičuje, je {\bf Drajv}. Jedná se o plochý úder hraný těsně před tělem a letící těsně nad páskou sítě \cite[badmintonweb].
+Druhý režim je pro střelbu do střední části kurtu. Hráč procvičuje odehrání míčů, které padají do hříště mezi první a zadní čárou. Prvním úderem, který se procvičuje, je {\bf Drajv}. Jedná se o plochý úder hraný těsně před tělem a letící těsně nad páskou sítě \cite[badmintonweb].
 
-Ideální perioda střel je v tomto režimu jeden košík za 1,5~s až 2~s, opět ale závisí na obtížnosti programu. Stroj by měl střídat strany a znovu je zde možnost střílet z jedné poloviny hřiště nebo z prostřed. Režim střídání stran by měl být nastavitelný s možností pravidelného, nebo náhodného střídání stran. Přestavení do nové polohy je opět potřeba stihnout mezi výstřely. 
+Ideální perioda střel je v tomto režimu jeden košík za 1,5~s až 2~s, opět ale závisí na obtížnosti programu. Stroj by měl střídat strany a znovu je zde možnost střílet z jedné poloviny kurtu nebo z prostřed. Režim střídání stran by měl být nastavitelný s možností pravidelného, nebo náhodného střídání stran. Přestavení do nové polohy je opět potřeba stihnout mezi výstřely. 
 
 \midinsert \clabel[stredni]{Tréninkové programy - střelba do střední části kurtu}
 \picheight=4cm \cinspic pic/stredni.jpg
 \caption/f Tréninkové programy - střelba do střední části kurtu.
 \endinsert
 
-V tomto režimu je klíčová změna stran, proto u druhého prototypu dosahujeme pouze \rfc{perioda} míčků za sekundu.
+V tomto režimu je klíčová změna stran, proto druhý prototyp zvládá pouze jeden míček za 5~s. Jiné omezení implementace ve stroji nemá.
 \nl
 \nl
 Ve střední části se také hraje {\bf Obrana} proti smeči. Pro tento úder je potřeba dostat stroj nad úroveň sítě. Stroj střílí prudký úder směrem dolů. Rychlostí kotoučů lze měnit sílu smeče. Požadavek na frekvenci je v tomto případě jeden míček za 2~s. Dalším důležitým požadavkem je nejnižší možný dostřel, tím je myšleno, jak blízko k síti dokáže stroj zasmečovat. Tento dostřel závisí na výšce, ze které stroj střílí a také na maximální velikosti záporné elevace. 
@@ -477,7 +516,7 @@ Ve střední části se také hraje {\bf Obrana} proti smeči. Pro tento úder j
 \caption/f Tréninkové programy - obrana ve střední části kurtu.
 \endinsert
 
-Stroj by měl mít možnost pokrýt co největší plochu a pokud možno střídat strany. Opět je zde možnost střílet z jedné strany kurtu, případně použít více spolupracujících strojů. U našeho prototypu je sice tento režim implementovám, ale protože stroj má celkem krátké kabely a spolu s rozvaděčem je relativně těžký, bylo by velmi obtížné zvednout stroj nad síť. Skutečné parametry by ale měly být stejné jako u předchozího režimu.
+Stroj by měl mít možnost pokrýt co největší plochu a pokud možno střídat strany. Opět je zde možnost střílet z jedné strany kurtu, případně použít více spolupracujících strojů. U našeho prototypu je sice tento režim implementovám, ale protože stroj má celkem krátké kabely a spolu s rozvaděčem je relativně těžký, bylo by velmi obtížné zvednout stroj nad síť. Skutečné parametry by ale měly být stejné jako u předchozího režimu, tudíž jeden míček za 5~s. 
 
  
 \sec Na síť 
@@ -493,17 +532,19 @@ Druhou možností hry na síti je {\bf Sklepnutí}. Oproti kraťasu míčky nepa
 \caption/f Tréninkové programy - střelba na/za síť.
 \endinsert
 
-Prototyp 2 tento režim zvládá bez problémů, pokud budeme měnit směr průběžně. Bohužel z důvodu slabého motoru na ose azimutu, zvládá tento režim pouze krátkodobě. Při střídání stran není reálné zvládnout tento režim s druhým prototypem.
+Prototyp 2 tento režim zvládá bez problémů, pokud budeme měnit směr průběžně. Bohužel z důvodu slabého motoru na ose azimutu, zvládá tento režim pouze krátkodobě. Při střídání stran není reálné zvládnout tento režim s druhým prototypem. 
 
 \sec Celý kurt
 
-Tréninkový program {\bf Celý kurt} je spojením střelby do zadní čáry hřiště společně se střelbou těsně za síť. Při střelbě je nutné pokrýt celý kurt a je potřeba střílet košík za 1~s až 2~s. Při tomto tréninkovém programu je několik možností sřelby. Tyto možnosti jsou znázorněny na obrázku. Je zde možnost střídat krátkou a dlouhou střelu, případně různé režimy, jako dva dlouhé, jeden krátký nebo jeden dlouhý a dva krátké, případně dlouhou střelu rovně před sebe a krátkou křížem.
+Tréninkový program {\bf Celý kurt} je spojením střelby do zadní čáry kurtu společně se střelbou těsně za síť. Při střelbě je nutné pokrýt celý kurt a je potřeba střílet košík za 1~s až 2~s. Při tomto tréninkovém programu je několik možností sřelby. Tyto možnosti jsou znázorněny na obrázku. Je zde možnost střídat krátkou a dlouhou střelu, případně různé režimy, jako dva dlouhé, jeden krátký nebo jeden dlouhý a dva krátké, případně dlouhou střelu rovně před sebe a krátkou křížem.
 
-Při testu na kurtu bylo naměřeno, že protoyp 2 zvládá tento režim bez problémů při střelbě rovně a pouze střídání krátký dlouhý míč. Při změně směru má stroj opět problém se slabým motorem na ose azimutu a tak zvládá vystřelit jeden košík za \rfc{perioda}.
+Při testu bylo naměřeno, že protoyp 2 zvládá tento režim bez problémů při střelbě rovně a pouze střídání krátký dlouhý míč. Při změně směru má stroj opět problém se slabým motorem na ose azimutu a tak zvládá vystřelit jeden košík za 4~s. 
 
 \sec Na raketu
 
 Poslední a nejrychlejší tréninkový program je nahazování na raketu. Tento režim nemusí být hrán přes síť. Režim spočívá v tom, že stroj velmi rychle pálí míčky před sebe. Při nejvyšší obtížnosti by měly být odpáleny tři míčky za vteřinu. Takovéto rychlosti by nebyl trenér schopen dosáhnout. V tomto režimu není potřeba měnit směr a vše závisí pouze na podavači míčků. 
+
+Ve stroji je tento režim implementován s tím, že tři míčky za vteřinu jsou v možnostech stroje. Co stroj nezvádá je průběžně měnit periodu odpalu.
 
 \sec Příjem servisu
 
@@ -516,7 +557,7 @@ Druhý typ podání, který je potřeba procvičit je tzv. {\bf Flick}. Jedná s
 Oba druhy mají stejné požadavky. Stroj by měl pokrýt celou šířku kurtu a střílet přibližně jeden míček za sekundu. Další možností je nepravidelně střídat oba druhy podání. 
 \nl
 \nl
-Tento režim v našem prototypu prozatím není implementován, ale měl by mít podobné parametry, jako režim střelby do zadní části kurtu.
+Tento režim v našem prototypu prozatím není implementován, ale skutečné parametry by měly být stejné, jako režim střelby do zadní části kurtu.
 
 
 
@@ -559,16 +600,68 @@ Jak již bylo uvedeno, je potřeba dosáhnout co nejlepších dynamických param
 
 \sec Návrh pohonů
 
-Při výběru pohoných jednotek jsem vycházel z analýzy točivého momentu viz. kapitola~\ref[tocmoment] a předpokládaných úprav. Z těchto informací byla odhadnuta maximální požadovanoá rychlost otáčení motoru a požadovaný točivý moment motoru. S ohledem na požadované vlastnosti motorů budou pro pohon kotoučů dva stejnosměrné motory, případně stejnosměrné bezkartáčové motory. K nastavení směru se jeví jako nejvhodnější řešení krokové motory. Krokové motory mají pro tuto aplikaci tu výhodu, že není potřeba externí enkodér k detekci polohy. Jako poslední pohonný prvek bylo potřeba vybrat pohon pro podavač míčků. Navržené konstrukci nejlépe vyhovuje upravené modelářské servo, kterému se odstraní zarážky, aby se mohlo točit dokola. 
+Při výběru pohoných jednotek jsem vycházel z analýzy točivého momentu (viz kapitola~\ref[tocmoment]) a předpokládaných úprav. Z těchto informací byla odhadnuta maximální požadovanoá rychlost otáčení motoru a požadovaný točivý moment motoru. S ohledem na požadované vlastnosti motorů budou pro pohon kotoučů dva stejnosměrné bezkartáčové motory. Navržený typ motoru je od firmy Anaheim Automation, konkrétně typ BLY174S-24V-12000. Tento motor má točivý motor 0,09~Nm a maximální rychlost otáčení 12000~RPM. K nastavení směru se jeví jako nejvhodnější řešení krokové motory. Krokové motory mají pro tuto aplikaci tu výhodu, že není potřeba externí enkodér k detekci polohy. Na novou konstrukci byl vybrán motor 23Y102S-LW8 opět od firmy Anaheim Automation. Parametry tohoto motoru jsou dostatečné pro použití na novém stroji. Točivý moment je 1,24~Nm a krok $1,8^\circ$ Jako poslední pohonný prvek bylo potřeba vybrat pohon pro podavač míčků. Navržené konstrukci nejlépe vyhovuje upravené modelářské servo, kterému se odstraní zarážky, aby se mohlo točit dokola. 
 
 \sec Návrh řídicího systému
 
 Řídicí systém použitý v předchozím prototypu byl velmi flexibilní a umožňoval snadno experimentovat s různými parametry stroje, ale pro třetí prototyp se jeví jako nevhodný především kvůli své velikosti. Proto bylo potřeba zvolit nový systém 
 řízení, což zahrnuje vybrat výpočetní jednotku, výkonovou část a navrhnout ovládací rozhraní.
 
+\secc Výkonová jednotka
+
+Pro řízení motorů byla vybrána právě vyvíjená deska od společnosti PIKRON. Tato výkonová část vycházi z desky MARS 8 od stejného výrobce. Jená se o právě vyvíjený prototyp, který se prozatím musí programovat pomocí konzole a funkce kterými disponuje se postupně rozšiřují při každé aktualizaci firmware. Zařízení také prozatím neumožňuje uložit nastavenou konfiguraci, proto se musí při každěm spuštění programovat znovu. Hlavní výhodou je to, že v zařízení je obsaženo velké množství algoritmů pro řízení různých motorů, což umožňuje připojit téměř jakýkoliv motor, včetně bezkartáčových stejnosměrných motorů a krokových motorů. Pro připojení je vyhrazeno 16 výstupních pinů, které jsou programovatelné a lze k nim připojit až 8 motorů. Tato výkonová část bude s řídicí částí komunikovat pomocí sběrnice UART, případně pomocí Ethernetu.
+
+\midinsert \clabel[mars]{Výkonová jednotka.}
+\picw=11cm \cinspic pic/mars.jpg
+\caption/f Výkonová jednotka.
+\endinsert
+
+Zařízení se skládá z výkonové části, jejíž vývoj momentálně probíhá. Druhou částí je řídicí část, jejímž srdcem je procesor ARM Cortex-M3 a hradlové pole FPGA Spartan 6. Komunikační možnosti této elektroniky jsou rovněž bohaté. Již zmíněný UART doplňuje převodník FTDI, který emuluje rozhraní USB. Dalšími možnostmi komunikace je ethernetové rozhraní, případně sběrnice CAN, I2C či SPI. Veškeré datové kanály jsou opticky odděleny.
+
+Celé zařízení je vidět na obrázku \ref[mars]. Jedná se o prototyp zapůjčený od společnosti PIKRON. Vzhledem k tomu, že i s třetím prototypem se bude experimentovat tak je vhodné použít tuto jednotku s tím, že firmware jednotky se bude upravovat průběžně a je možno přidat i některé funkce, které budou potřeba pro řízení badmintonového stroje. Zároveň dojde k otestování jednotky výrobcem a odladění jednotlivých funkcí.
+\nl
+\nl
+
+Pro otestování jednotky byl použit jednoduchý program napsaný v programovacím jazyku Python. Jednotka se připojí k PC pomocí sběrnice UART přes převodník FTDI. Po připojení se zařízení hlásí jako sériový port, na kterém naslouchá. Zařízení se ovládá pomocí jednoduchých příkazů. Každý příkaz se skládá ze tří částí, které mohou být odděleny mezerami \cite[mars]:
+\begitems
+* {\bf Jméno} Je kombinace znaků. V případě že se příkaz vztahuje k motorům je na konci diplněn znak motoru.
+* {\bf Operační znak} Definuje typ příkazu. Pokud se jedná o dotaz použije se znak \uv{?}. Pro příkaz je vyčleněn znak \uv{:}. Pro potvrzování může být použit znak \uv{.}.
+* {\bf Parametr} Jedná se o hodnotu vztahující se ke konkrétnímu příkazu například u příkazu {\em "PWMA:0"} na motoru A nastaví střídu pwm na hodnotu 0.
+\enditems
+
+Pro otestování funkce byly použity dva bezkartáčové motory. Příklad příkazů potřebných k roztočení jednoho z motorů je uveden níže.
+\begtt
+RELEASEA:      //Odpojí regulátor motoru A
+PURGEA:        //Zastaví regulace s chybou motoru A
+RELEASEB:      //Odpojí regulátor motoru B
+PURGEB:        //Zastaví regulace s chybou motoru B
+
+REGOUTMAP:0,3,6//Namapuje výstupní piny (piny 0 až 3 na A, 3 až 6 na B)
+
+REGPTIRCA:1000 //Nastavení parametrů regulátoru A
+REGPTPERA:1    //Nastavení parametrů regulátoru A
+REGPTMARKA:1180//Nastavení parametrů regulátoru A
+REGMODEA:5     //Nastavení módu řízení na pwm pro motor A
+PWMA:0         //Nastavení 0 střídy na motoru A
+
+PWMA:1000      //Nastavení 1000 střídy na motoru A rozsah 0 až 32000.
+\endtt
+
+Pro naše účely budeme potřebovat příkazy pro řízení rychlosti otáčení a příkazy pro najetí na polohu.
+
+\begtt
+SPDA:1000      //Roztočí motor A rychlostí 1000~RPM
+SPDA:-1000     //Roztočí motor A rychlostí 1000~RPM opačným směrem
+
+GA:100         //Najede motorem A na absolutní polohu 100
+GRA:100        //Najede motorem A na relativní polohu 100
+
+APA?           //Vrátí polohu motoru A
+\endtt
+
 \secc Výpočetní jednotka
 
-Pro řízení všech funkcí stroje je naprosto vyhovující jednodeskový počítač Raspberry Pi 2 B viz. Obrázek \ref[raspi]. Jedná se o malý počítač přibližně velikosti platební karty. Tento počítač i přes svojí malou velikost a pořizovací náklady obsahuje vše potřebné pro běh operačního systému Linux.
+Pro řízení všech funkcí stroje je naprosto vyhovující jednodeskový počítač Raspberry Pi 2 B (viz Obrázek \ref[raspi]). Jedná se o malý počítač přibližně velikosti platební karty. Tento počítač i přes svojí malou velikost a pořizovací náklady obsahuje vše potřebné pro běh operačního systému Linux.
 
 \midinsert \clabel[raspi]{Raspberry Pi \cite[raspi]}
 \picw=11cm \cinspic pic/raspi.jpeg
@@ -590,16 +683,6 @@ Použitá verze Raspberry Pi dále obsahuje:
 
 Na Raspberry je nainstalován systém Raspbian, který je odnoží Linuxové distribuce Debian. K počítači Raspberry existuje obrovská komunita, což má tu výhodu, že na internetu je k dispozici nepřeberné množsví návodů a příkladů téměř na vše. Většina těchto příkladů je psána v jazyce Python. 
 
-\secc Výkonová jednotka
-
-K počítači Raspberry Pi je potřeba připojit výkonové rozhraní pro řízení motorů. Pro tento účel byla vybrána právě vyvíjená deska pro řízení motorů od společnosti PIKRON. Tato výkonová část vycházi z desky MARS 8 od stejného výrobce. Hlavní výhodou je, možnost připojit téměř jakýkoliv motor. To umožňuje připojit až 8 motorů a nezáleží na tom zda se jedná ostejnosměrný kartáčový, bezkartáčový nebo krokový motor. Tato výkonová část bude s řídicí částí komunikovat pomocí sběrnice UART, případně pomocí Ethernetu.
-
-\midinsert \clabel[mars]{Výkonová jednotka.}
-\picw=11cm \cinspic pic/mars.jpg
-\caption/f Výkonová jednotka.
-\endinsert
-
-Zařízení se skládá z výkonové části, jejíž vývoj momentálně probíhá. Druhou částí je řídicí část, jejímž srdcem je procesor ARM Cortex-M3 a hradlové pole FPGA Spartan 6. Komunikační možnosti této elektroniky jsou rovněž bohaté. Již zmíněný UART doplňuje převodník FTDI, který emuluje rozhraní USB. Dalšími možnostmi komunikace je ethernetové rozhraní, případně sběrnice CAN, I2C či SPI. Veškeré datové kanály jsou opticky odděleny.
 
 \secc Ovládání a uživatelské rozhraní
 
