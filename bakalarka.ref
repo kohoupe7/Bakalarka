@@ -67,8 +67,8 @@
 \Xsecc{4.3.3}{Azimut }{11}
 \Xfig{azimut}{4.8}{Graf pohybu z polohy $-15^\circ $ do polohy $10^\circ $.}
 \Xlabel{azimut}{4.8}
-\Xsecc{4.3.4}{Kotouče }{11}
 \Xpage{12}
+\Xsecc{4.3.4}{Kotouče }{12}
 \Xfig{kotouc}{4.9}{Výkres kotouče.}
 \Xlabel{kotouc}{4.9}
 \Xlabel{momentsily}{(1)}
@@ -76,110 +76,116 @@
 \Xpage{13}
 \Xfig{podavac}{4.10}{Roztočení podavače}
 \Xlabel{podavac}{4.10}
+\Xlabel{mereni}{4.4}
 \Xsec{4.4}{Měření přesnosti úderů }{13}
-\Xsecc{4.4.1}{Statické měření střelby rovně před sebe }{13}
+\Xfig{dynamMer1}{4.11}{Dynamické měření přesnosti při střídání stran.}
+\Xlabel{dynamMer1}{4.11}
+\Xfig{dynamMer2}{4.12}{Dynamické měření přesnosti při střídání vzdálenosti.}
+\Xlabel{dynamMer2}{4.12}
+\Xpage{14}
+\Xsecc{4.4.1}{Statické měření střelby rovně před sebe }{14}
 \Xtab{mereni1}{4.1}{Naměřené hodnoty při střelbě rovně před sebe do vzdálenosti 4~m.}
 \Xlabel{mereni1}{4.1}
-\Xpage{14}
 \Xtab{mereni11}{4.2}{Naměřené hodnoty při střelbě rovně před sebe do vzdálenosti 9,4~m.}
 \Xlabel{mereni11}{4.2}
+\Xsecc{4.4.2}{Měření závislosti doletu na otáčkách kotoučů }{14}
 \Xtab{merenivzdalenost}{4.3}{Měření doletu v závislosti na otáčkách kotoučů.}
 \Xlabel{merenivzdalenost}{4.3}
-\Xsecc{4.4.2}{Měření závislosti doletu na otáčkách kotoučů }{14}
-\Xfig{grafDostrel}{4.11}{Závislost dostřelu na rychlosti otáčení kotoučů.}
-\Xlabel{grafDostrel}{4.11}
-\Xsecc{4.4.3}{Dynamické měření přesnosti při střídání stran }{14}
 \Xpage{15}
+\Xfig{grafDostrel}{4.13}{Závislost dostřelu na rychlosti otáčení kotoučů.}
+\Xlabel{grafDostrel}{4.13}
 \Xtab{mereni2}{4.4}{Naměřené hodnoty při střídání stran.}
 \Xlabel{mereni2}{4.4}
+\Xsecc{4.4.3}{Dynamické měření přesnosti při střídání stran }{15}
 \Xsecc{4.4.4}{Dynamické měření přesnosti při střídání vzdálenosti }{15}
-\Xtab{mereni3}{4.5}{Naměřené hodnoty při střídání vzdálenosti.}
-\Xlabel{mereni3}{4.5}
 \Xsecc{4.4.5}{Závěr měření }{15}
 \Xpage{16}
-\Xchap{5}{Algoritmus řízení }{16}
+\Xtab{mereni3}{4.5}{Naměřené hodnoty při střídání vzdálenosti.}
+\Xlabel{mereni3}{4.5}
+\Xpage{17}
+\Xchap{5}{Algoritmus řízení }{17}
 \Xfig{AS}{5.1}{Vývojové prostředí Automation studio.}
 \Xlabel{AS}{5.1}
-\Xsec{5.1}{Struktura programu }{16}
-\Xpage{17}
+\Xsec{5.1}{Struktura programu }{17}
+\Xpage{18}
 \Xfig{diagram}{5.2}{Vývojový diagram automatického řízení.}
 \Xlabel{diagram}{5.2}
-\Xsec{5.2}{Výpočet doletu }{17}
+\Xsec{5.2}{Výpočet doletu }{18}
 \Xlabel{dolet}{(1)}
-\Xpage{18}
-\Xchap{6}{Uživatelské rozhraní }{18}
-\Xsec{6.1}{Volba a nastavení tréninkového programu }{18}
+\Xpage{19}
+\Xchap{6}{Uživatelské rozhraní }{19}
+\Xsec{6.1}{Volba a nastavení tréninkového programu }{19}
 \Xfig{volbaProgramu}{6.1}{Vizualizace - Výběr tréninkového programu}
 \Xlabel{volbaProgramu}{6.1}
-\Xpage{19}
+\Xpage{20}
 \Xfig{nastaveniProgramu}{6.2}{Vizualizace - Nastavení tréninkového programu}
 \Xlabel{nastaveniProgramu}{6.2}
 \Xfig{chod}{6.3}{Vizualizace - Chod programu}
 \Xlabel{chod}{6.3}
-\Xsec{6.2}{Chod tréninkového programu }{19}
-\Xpage{20}
-\Xsec{6.3}{Manuální režim a servisní obrazovka }{20}
+\Xsec{6.2}{Chod tréninkového programu }{20}
+\Xpage{21}
+\Xsec{6.3}{Manuální režim a servisní obrazovka }{21}
 \Xfig{manual}{6.4}{Vizualizace - Manuál}
 \Xlabel{manual}{6.4}
-\Xpage{21}
+\Xpage{22}
 \Xfig{servis}{6.5}{Vizualizace - Servis}
 \Xlabel{servis}{6.5}
-\Xpage{22}
-\Xlabel{tocmoment}{7}
-\Xchap{7}{Analýza točivého momentu }{22}
-\Xsec{7.1}{Kotouče }{22}
-\Xlabel{vztahMoment}{(1)}
-\Xsec{7.2}{Elevace }{22}
-\Xlabel{momentsily2}{(2)}
 \Xpage{23}
+\Xlabel{tocmoment}{7}
+\Xchap{7}{Analýza točivého momentu }{23}
+\Xsec{7.1}{Kotouče }{23}
+\Xlabel{vztahMoment}{(1)}
+\Xsec{7.2}{Elevace }{23}
+\Xlabel{momentsily2}{(2)}
+\Xpage{24}
 \Xlabel{rovZrych}{(3)}
 \Xlabel{rovZrych2}{(4)}
-\Xsec{7.3}{Azimut }{23}
-\Xpage{24}
+\Xsec{7.3}{Azimut }{24}
+\Xpage{25}
 \Xlabel{programy}{8}
-\Xchap{8}{Tréninkové programy }{24}
+\Xchap{8}{Tréninkové programy }{25}
 \Xfig{zony}{8.1}{Badmintonový kurt - zóny dopadu míčků}
 \Xlabel{zony}{8.1}
-\Xpage{25}
-\Xsec{8.1}{Zadní část }{25}
+\Xpage{26}
+\Xsec{8.1}{Zadní část }{26}
 \Xfig{zadniStrely}{8.2}{Tréninkové programy - střelba do zadní části kurtu}
 \Xlabel{zadniStrely}{8.2}
-\Xsec{8.2}{Střední část }{25}
-\Xpage{26}
+\Xsec{8.2}{Střední část }{26}
+\Xpage{27}
 \Xfig{stredni}{8.3}{Tréninkové programy - střelba do střední části kurtu}
 \Xlabel{stredni}{8.3}
 \Xfig{obrana}{8.4}{Tréninkové programy - obrana ve střední části kurtu}
 \Xlabel{obrana}{8.4}
-\Xsec{8.3}{Na síť }{26}
-\Xpage{27}
+\Xsec{8.3}{Na síť }{27}
+\Xpage{28}
 \Xfig{sit}{8.5}{Tréninkové programy - střelba na/za síť}
 \Xlabel{sit}{8.5}
-\Xsec{8.4}{Celý kurt }{27}
-\Xsec{8.5}{Na raketu }{27}
-\Xsec{8.6}{Příjem servisu }{27}
-\Xpage{28}
+\Xsec{8.4}{Celý kurt }{28}
+\Xsec{8.5}{Na raketu }{28}
+\Xsec{8.6}{Příjem servisu }{28}
 \Xpage{29}
-\Xchap{9}{Prototyp 3 }{29}
-\Xsec{9.1}{Návrh konstrukce }{29}
-\Xsecc{9.1.1}{Kotouče }{29}
-\Xlabel{setrvacnost}{(1)}
-\Xsecc{9.1.2}{Podavač }{29}
 \Xpage{30}
-\Xsecc{9.1.3}{Nastavení směru }{30}
-\Xsec{9.2}{Návrh pohonů }{30}
-\Xsec{9.3}{Návrh řídicího systému }{30}
-\Xsecc{9.3.1}{Výkonová jednotka }{30}
+\Xchap{9}{Prototyp 3 }{30}
+\Xsec{9.1}{Návrh konstrukce }{30}
+\Xsecc{9.1.1}{Kotouče }{30}
+\Xlabel{setrvacnost}{(1)}
+\Xsecc{9.1.2}{Podavač }{30}
 \Xpage{31}
+\Xsecc{9.1.3}{Nastavení směru }{31}
+\Xsec{9.2}{Návrh pohonů }{31}
+\Xsec{9.3}{Návrh řídicího systému }{31}
+\Xsecc{9.3.1}{Výkonová jednotka }{31}
+\Xpage{32}
 \Xfig{mars}{9.1}{Výkonová jednotka.}
 \Xlabel{mars}{9.1}
-\Xpage{32}
-\Xsecc{9.3.2}{Výpočetní jednotka }{32}
+\Xpage{33}
+\Xsecc{9.3.2}{Výpočetní jednotka }{33}
 \Xfig{raspi}{9.2}{Raspberry Pi \cite [raspi]}
 \Xlabel{raspi}{9.2}
-\Xpage{33}
-\Xsecc{9.3.3}{Ovládání a uživatelské rozhraní }{33}
 \Xpage{34}
-\Xchap{10}{Závěr }{34}
+\Xsecc{9.3.3}{Ovládání a uživatelské rozhraní }{34}
+\Xpage{35}
+\Xchap{10}{Závěr }{35}
 \Xbib{knight}{1}{, }
 \Xbib{apollo}{2}{, }
 \Xbib{siboasi}{3}{, }
@@ -189,8 +195,8 @@
 \Xbib{BPOndra}{7}{, }
 \Xbib{badmintonweb}{8}{, }
 \Xbib{mars}{9}{, }
-\Xpage{35}
-\Xchap{!1}{Literatura}{35}
+\Xpage{36}
+\Xchap{!1}{Literatura}{36}
 \Xpage{37}
 \Xlabel{zkratky}{A}
 \Xchap{A}{Seznam zkratek }{37}

@@ -130,23 +130,24 @@ Po detailním zkoumání podavače bylo rozhodnuto, že tvar podávacího ramene
 
 \sec Elektrické zapojení
 
-Pro pohon kotoučů, podavače a nastavení azimutu jsou opět použity motory B\&R 8MSA2S.R0-42-Rev.D0. K pohonu nastavení elevace je použit silnější motor B\&R 8LSA25.R0060D000-0 Rev.C4. Tento silnější motor má krouticí moment 0.6~Nm. I přesto, že byl na nastavení elevace použit silnější motor, tak se tento motor přibližně po minutě přehřál a servozesilovač spadl do chyby. Proto muselo být přidáno závaží, které vyvážilo celý mechanizmus. 
+Ke stávajícímu zapojení byl přidán další motor B\&R 8MSA2S.R0-42-Rev.D0. K pohonu nastavení elevace je použit silnější motor B\&R 8LSA25.R0060D000-0 Rev.C4. Tento silnější motor má krouticí moment 0.6~Nm. I přesto, že byl na nastavení elevace použit silnější motor, tak se tento motor přibližně po minutě přehřál a servozesilovač spadl do chyby. Proto muselo být přidáno závaží, které vyvážilo celý mechanizmus. 
 
-Motory jsou opět ovládány pomocí servozesilovačů ACOPOS 8V1010. K zařízení byl také přidán access point díky čemuž lze zařízení ovládat pomocí technologie WiFi například z mobilního telefonu. Kompletní zapojení rozvaděče je na obrázku \ref[schema].
+Ke stávajícím servozesilovačům ACOPOS 8V1010 byly přidány další dva, které byly zapojeny stejným způsobem jako servozesilovače doteď namontované. Přidané servozesilovače jsou napájeny ze zdroje od firmy B\&R. K zařízení byl také přidán access point díky čemuž lze zařízení ovládat pomocí technologie WiFi například z mobilního telefonu. Toto AP je napájeno ze servisní zásuvky. Kompletní zapojení rozvaděče po rozšíření je na obrázku \ref[schema].
+\nl
+\nl
+Zbytek zapojení zůstal stejný jako na počátku práce. Stroj je tedy pořád napájen ze sítě 230~V/50~Hz. Servořadiče ACOPOS v sobě mají velký filtrační kondenzátor, který je zapojen proti zemnicímu vodiči. Při nabíjení tohoto kondenzátoru by tudíž docházelo k odpojování obvodu proudovým chráničem, proto je napájení realizováno přes oddělovací transformátor.
 
 \midinsert \clabel[schema]{Schema zapojení rozvaděče.}
 \picw=15cm \cinspic pic/schema_p2.JPG
 \caption/f Schema zapojení rozvaděče.
 \endinsert
 
-Stroj je napájen ze sítě 230~V/50~Hz. Servořadiče ACOPOS v sobě mají velký filtrační kondenzátor, který je zapojen proti zemnicímu vodiči. Při nabíjení tohoto kondenzátoru by tudíž docházelo k odpojování obvodu proudovým chráničem, proto je napájení realizováno přes oddělovací transformátor.
-
 \midinsert \clabel[plc]{PLC B\&R X20CP3586 \cite[br].}
 \picw=7cm \cinspic pic/X20CP3586.jpg
 \caption/f PLC B\&R X20CP3586 \cite[br].
 \endinsert
 
-Za transformátorem je umístěn hlavní vypínač, kterým se vypíná napájení stroje. Na~silové napájení jsou přes jističe připojeny silové vstupy servozesilovačů ACOPOS. Dále je na rozvod 230~V zapojena servisní zásuvka, do které je připojen nápájecí zdroj od~access pointu TP-LINK. Posledním zařízením připojeným na 230~V jsou zdroje stejnosměrného napětí 24~V. Zdroje jsou zde dva, jeden od firmy B\&R, kterým je napájeno PLC B\&R X20CP3586 (Obrázek \ref[plc]) a servozesilovače pro řízení azimutu a elevace. Druhým zdrojem je zdroj WAGO, ten napájí zbylé tři servozesilovače. Nulový potenciál obou zdrojů je spojený a přes rozpínací tlačítko TOTAL STOP je přiveden na vstupy ENABLE všech servozesilovačů. Servozesilovače komunikují s řídicím systémem pomocí sběrnice POWERLINK. 
+Za transformátorem je umístěn hlavní vypínač, kterým se vypíná napájení stroje. Na~silové napájení jsou přes jističe připojeny silové vstupy servozesilovačů ACOPOS. Posledním zařízením připojeným na 230~V jsou zdroje stejnosměrného napětí 24~V. Zdroje jsou zde dva, jeden od firmy B\&R, kterým je mimo nově připojených servozesilovačů napájeno PLC B\&R X20CP3586 (Obrázek \ref[plc]). Druhým zdrojem je zdroj WAGO, ten napájí zbylé tři servozesilovače. Nulový potenciál obou zdrojů je spojený a přes rozpínací tlačítko TOTAL STOP je přiveden na vstupy ENABLE všech servozesilovačů. Servozesilovače komunikují s řídicím systémem pomocí sběrnice POWERLINK. 
 
 
 
@@ -160,7 +161,7 @@ Dynamické parametry závisí na nastavení PID regulátoru polohy v servozesilo
 
 \secc Elevace
 
-Z obrázku \ref[elevace1] vyplývá, že pohyb z polohy $-45^\circ$ do polohy $45^\circ$ trval 0,8~s. Tento pohyb je téměř bez překmitu, bohužel při pohybu kratšim než $20^\circ$ má motor moc malý krouticí moment a tak nezvládne stroj ubrzdit a dochází k velkému překmitu, což je vidět na obrázku \ref[elevace2]. V tomto případě trvá pohyb do ustálení přibližně 0,75~s. Proto je potřeba při takto krátkém přesunu snížit hodnotu zrychlení. Při snížení zrychlení o 60~$ {ot}\over{min \cdot s^2}$ se zmenší překmit a doba do ustálení se zkrátí přibližně na 0,5~s.
+Z obrázku \ref[elevace1] vyplývá, že pohyb z polohy $-45^\circ$ do polohy $45^\circ$ trval 0,8~s. Tento pohyb je téměř bez překmitu, bohužel při pohybu kratšim než $20^\circ$ má motor moc malý krouticí moment a tak nezvládne stroj ubrzdit a dochází k velkému překmitu, což je vidět na obrázku \ref[elevace2]. V tomto případě trvá pohyb do ustálení přibližně 0,75~s. Proto je potřeba při takto krátkém přesunu snížit hodnotu zrychlení. Při snížení zrychlení o 60~$ {RPM}\over{s}$ se zmenší překmit a doba do ustálení se zkrátí přibližně na 0,5~s.
 
 \midinsert \clabel[elevace1]{Graf pohybu z polohy $-45^\circ$ do polohy $45^\circ$.}
 \picw=4cm \cinspic pic/elevace1.jpg
@@ -216,9 +217,22 @@ Požadavky na podavač, které jsou dány v kapitole \ref[programy], jsou velmi 
 \caption/f Roztočení podavače.
 \endinsert
 
+\label[mereni]
 \sec Měření přesnosti úderů
 
 Úkolem tohoto měření bylo zjistit přesnost úderů v různých situacích. Samotné měření bylo rozděleno na čtyři části. V každé z těchto částí bylo určeno několik poloh, do kterých se stroj trefoval a byla měřena vzdálenost dopadu míčku od cílového bodu. Každé měření bylo provedeno několikrát, aby se eliminovala chyba měření. Cílem těchto měření bylo zjistit, zda je výpočet dostřelu, použitý v automatických režimech, dostatečně přesný a zjistit závislost doletu míčku na otáčkách kotoučů.
+
+\midinsert
+\line{\hsize=.5\hsize \vtop{%
+      \clabel[dynamMer1]{Dynamické měření přesnosti při střídání stran.}
+      \picw=4.2cm \cinspic pic/dynamMereni1.jpg
+      \caption/f Dynamické měření přesnosti při střídání stran.
+   \par}\vtop{%
+      \clabel[dynamMer2]{Dynamické měření přesnosti při střídání vzdálenosti.}
+      \picw=4.2cm \cinspic pic/dynamMereni2.jpg
+      \caption/f Dynamické měření přesnosti při střídání vzdálenosti.
+   \par}}
+\endinsert
 
 \secc Statické měření střelby rovně před sebe
 
@@ -236,7 +250,7 @@ V prvním měření byl určen pouze jeden bod a stroj střílel přímo před s
 \caption/t Naměřené hodnoty při střelbě rovně před sebe do vzdálenosti 4~m.
 \endinsert
 
-Průměrná vzdálenost dopadu míčku od cílového bodu je 27,4~cm, rozptyl naměřených hodnot je $14,44~cm^2$.
+Průměrná vzdálenost dopadu míčku od cílového bodu při střelbě do vzdálenosti 4~m je 27,4~cm, rozptyl naměřených hodnot je $14,44~cm^2$.
 
 \midinsert \clabel[mereni11]{Naměřené hodnoty při střelbě rovně před sebe do vzdálenosti 9,4~m.}
 \ctable{ccc}{
@@ -250,7 +264,7 @@ Průměrná vzdálenost dopadu míčku od cílového bodu je 27,4~cm, rozptyl na
 \caption/t Naměřené hodnoty při střelbě rovně před sebe do vzdálenosti 9,4~m.
 \endinsert
 
-Průměrná vzdálenost dopadu míčku od cílového bodu je 26,2~cm, rozptyl naměřených hodnot je $186,16~cm^2$.
+Průměrná vzdálenost dopadu míčku od cílového bodu při střelbě do vzdálenosti 9,4~m je 26,2~cm, rozptyl naměřených hodnot je $186,16~cm^2$.
 
 Jak je vidět z naměřených hodnot, tak při střelbě do větší vzdálenosti se zvětšuje také rozptyl a to z toho důvodu, že při zvyšující se době letu se více projeví rozdíly mezi jednotlivými košíky.
 
@@ -282,53 +296,43 @@ Závislost dostřelu na otáčkách kotoučů je uvedena na obrázku \ref[grafDo
 
 \secc Dynamické měření přesnosti při střídání stran
 
-V druhém měření byly určeny dva body vzdálené 4,5~m od sebe a ve vzdálenosti 4~m od sítě (viz Obrázek \ref[merenipic1]). Stroj střídal strany a střílel postupně na oba body. 
+V druhém měření byly určeny dva body vzdálené 4,5~m od sebe a ve vzdálenosti 4~m od sítě (viz Obrázek \ref[dynamMer1]). Stroj střídal strany a střílel postupně na oba body. 
 
 \midinsert \clabel[mereni2]{Naměřené hodnoty při střídání stran.}
 \ctable{cccc}{
- \hfil Míček & Vzdálenost od bodu 1 & Vzdálenost od bodu 2\crl \tskip4pt
-  1 & ano & ano \cr
-  2 & ano & ano \cr 
-  3 & ano & ano \cr 
-  4 & ano & ano \cr 
-  5 & ano & ano \cr 
-  6 & ano & ano \cr
-  7 & ano & ano \cr 
-  8 & ano & ano \cr 
-  9 & ano & ano \cr 
-  10 & ano & ano \cr 
+ \hfil Míček & Vzdálenost od bodu 1 [cm] & Vzdálenost od bodu 2 [cm]\crl \tskip4pt
+  1 & 12 & 5 \cr
+  2 & 15 & 6 \cr 
+  3 & 5 & 0 \cr 
+  4 & 2 & 14 \cr 
+  5 & 8 & 2 \cr 
 }
 \caption/t Naměřené hodnoty při střídání stran.
 \endinsert
 
-V toto měření byla měřena přesnost střelby při střídání stran. Průměrná vzdálenost dopadu míčků od bodu 1 je \rfc{mereni} a od bodu 2 \rfc{mereni}.
+V toto měření byla měřena přesnost střelby při střídání stran. Průměrná vzdálenost dopadu míčků od bodu 1 je 6,4~cm a od bodu 2 5,4~cm. Rozptyl jednotlivých měření je byl u bodu 1 $23,44~cm^2$ a u bodu 2 $23,04~cm^2$.
 
 \secc Dynamické měření přesnosti při střídání vzdálenosti
 
-Poslední měření mělo za úkol zjistit přesnost střelby při změně vzdálenosti, do které stroj střílí. Opět byli zvoleny dva body rovně před strojem. První bod byl ve vzdálenosti 4,5~m a druhý ve vzdálenosti 8~m. 
+Poslední měření mělo za úkol zjistit přesnost střelby při změně vzdálenosti, do které stroj střílí. Opět byli zvoleny dva body rovně před strojem. První bod byl ve vzdálenosti 4,5~m a druhý ve vzdálenosti 8~m (viz Obrázek \ref[dynamMer2]). 
 
 \midinsert \clabel[mereni3]{Naměřené hodnoty při střídání vzdálenosti.}
 \ctable{cccc}{
- \hfil Míček & Vzdálenost od bodu 1 & Vzdálenost od bodu 2\crl \tskip4pt
-  1 & ano & ano \cr
-  2 & ano & ano \cr 
-  3 & ano & ano \cr 
-  4 & ano & ano \cr 
-  5 & ano & ano \cr 
-  6 & ano & ano \cr
-  7 & ano & ano \cr 
-  8 & ano & ano \cr 
-  9 & ano & ano \cr 
-  10 & ano & ano \cr 
+ \hfil Míček & Vzdálenost od bodu 1 [cm] & Vzdálenost od bodu 2 [cm]\crl \tskip4pt
+  1 & 2 & 5 \cr
+  2 & 5 & 32 \cr 
+  3 & 0 & 40 \cr 
+  4 & 2 & 26 \cr 
+  5 & 1 & 2 \cr 
 }
 \caption/t Naměřené hodnoty při střídání vzdálenosti.
 \endinsert
 
-Průměrná vzdálenost dopadu míčků od bodu 1 je \rfc{mereni} a od bodu 2 \rfc{mereni}.
+Průměrná vzdálenost dopadu míčků od bodu 1 je 2~cm a od bodu 2 21~cm. Rozptyl od bližžšího bodu byl $2,8~cm^2$ a od vzdálenějšího $224,8~cm^2$.
 
 \secc Závěr měření
 
-Z naměřených hodnot vyplývá že vztah použitý pro výpočet doletu je pro naše účely dostatečně přesný. Při statickém měření bylo zjištěno jaký vliv na přesnost mají různé míčky. Rozptyl naměřených hodnot při statickém měření byl. Nejvyšší nepřesnost byla naměřena pri střídání vzdálenosti, ale tato chyba není nikterak velká, průměrně. Při střídání stran je chyba jen o málo menší než při střídání vzdálenosti. 
+Z naměřených hodnot vyplývá že vztah použitý pro výpočet doletu je pro naše účely dostatečně přesný. Při statickém měření bylo zjištěno jaký vliv na přesnost mají různé míčky a z naměřených hodnot vyplývá, že s narůstající vzdáleností se zvyšuje rozptyl dopadajících míčků. Tento rozptyl míčků se zvyšuje protože při střelbě na větší vzdálenost se zvýší doba letu a projeví se jakýkoliv rozdíl mezi košíky. Při střídání stran je rozptyl okolo jednotlivých bodů téměř stejný. Ze změřené závislosti doletu na otáčkách motoru je vidět že od otáček 3500~RPM se dostřel zvyšuje už minimálně.
 
 
 \chap Algoritmus řízení
@@ -359,7 +363,7 @@ Ve stavu VYPNUTO je stroj v klidu a čeká na spuštění některého z program�
 Pro většinu tréninkových programů je naprosto klíčová znalost doletu míčku v závislosti na nastavení rychlosti kotoučů a elevace. Trajektorie letu košíku je balistická křivka. Bohužel nejsou známy parametry popisující chování míčku ve vzduchu, proto nelze spočítat dostřel přesně. Dalším problémem je rozdíl mezi různými míčky, při výpočtu by bylo potřeba zohlednit například i materiál nebo stáří míčku. V neposlední řadě je nutné znát i rychlost košíku při opuštění stroje. Tato rychlost se teoreticky rovná obvodové rychlosti kotoučů, ale z důvodu prokluzu míčku mezi kotouči bude vždy menší. Proto nikdy nespočítáme dostřel přesně a výpočet bude vždy jen přibližný. Experimentálně byl odvozen vztah \ref[dolet], který alespoň přibližně popisuje závislost doletu na elevaci a rychlosti kotoučů. Vztah je velmi zjednodušen, odvození přesné závislosti by bylo na samostatnou práci.
 \label[dolet]
 $$x={{L\cdot \cos(\varphi)}\over{2}}\cdot \ln \left (1+4\cdot \left ({{v_0}\over{v_{inf}}}\right )^2 \cdot \sin(\varphi)\right ) \eqmark $$
-kde x je vzdálenost, ve které se míček nachází ve stejné výšce, z jaké byl vystřelen v metrech. L je aerodynamická délka opět v metrech. Dále je zde $\varphi$, což je počáteční úhel elevace. V neposlední řadě vztah obsahuje počáteční rychlost košíku $v_0$ a maximální pádovou rychlost $v_{inf}$. Obě rychlosti se dosazují v $m\cdot s^{-1}$.
+kde x je vzdálenost, ve které se míček nachází ve stejné výšce, z jaké byl vystřelen v metrech. L je aerodynamická délka opět v metrech. Dále je zde $\varphi$, což je počáteční úhel elevace. V neposlední řadě vztah obsahuje počáteční rychlost košíku $v_0$ a maximální pádovou rychlost $v_{inf}$. Obě rychlosti se dosazují v $m\cdot s^{-1}$. Změřené údaje popisující možnosti stroje jsou uvedeny v kapitole \ref[mereni].
 
 
 \chap Uživatelské rozhraní
@@ -430,7 +434,7 @@ Po převedení na správné jednotky a dosazení do vztahu \ref[vztahMoment] je 
 
 \sec Elevace
 
-Pro výpočet momentu potřebného pro pohyb osy elevace neznáme přesnou hodnotu momentu setrvačnosti. Tu ale můžeme přibližně odvodit ze zkušeností se strojem a úhlového zrychlení, které stroj zvládá. Maximální zrychlení, které bylo vyzkoušeno a motor jej ještě zvládá, je $450~{{ot}\over{min\cdot s}}$, tedy $\alpha = 47,12~rad\cdot s^{-2}$. Použitý motor má moment 0,6~Nm, špičkově až 2,4~Nm. Počítat budeme s momentem M=2~Nm. Moment setrvačnosti můžeme odhadnout dosazením do vzorce \ref[momentsily2].
+Pro výpočet momentu potřebného pro pohyb osy elevace neznáme přesnou hodnotu momentu setrvačnosti. Tu ale můžeme přibližně odvodit ze zkušeností se strojem a úhlového zrychlení, které stroj zvládá. Maximální zrychlení, které bylo vyzkoušeno a motor jej ještě zvládá, je $450~{{RPM}\over{s}}$, tedy $\alpha = 47,12~rad\cdot s^{-2}$. Použitý motor má moment 0,6~Nm, špičkově až 2,4~Nm. Počítat budeme s momentem M=2~Nm. Moment setrvačnosti můžeme odhadnout dosazením do vzorce \ref[momentsily2].
 
 \label[momentsily2]
 $$\alpha={{M}\over{J}} \eqmark $$
@@ -450,7 +454,7 @@ Po dosazení do vztahu \ref[rovZrych2] dostáváme požadované zrychlení $80~^
 
 \sec Azimut
 
-Podobně jako u elevace tak ani u azimutu neznáme přesnou hodnotu momentu setrvačnosti, takže jej musíme odhadnout stejným způsobem. Nastavené zrychlení, které stroj ještě zvládá, i když krátkodobě, je $45~{{ot}\over{min\cdot s}}$ to znamená $4,71~rad\cdot s^{-2}$. Na osu azimutu je použit slabší motor než na osu elevace z toho důvodu, že silnější motor má větší rozměry a tak se motor do mechanické konstrukce nevejde. Použitý motor má stálý moment 0,2~Nm a špičkový 0,8~Nm. Vzhledem k tomu, že motor vydrží pracovat jen krátkodobě, tak budeme pracovat se špičkovým momentem.
+Podobně jako u elevace tak ani u azimutu neznáme přesnou hodnotu momentu setrvačnosti, takže jej musíme odhadnout stejným způsobem. Nastavené zrychlení, které stroj ještě zvládá, i když krátkodobě, je $45~{{RPM}\over{s}}$ to znamená $4,71~rad\cdot s^{-2}$. Na osu azimutu je použit slabší motor než na osu elevace z toho důvodu, že silnější motor má větší rozměry a tak se motor do mechanické konstrukce nevejde. Použitý motor má stálý moment 0,2~Nm a špičkový 0,8~Nm. Vzhledem k tomu, že motor vydrží pracovat jen krátkodobě, tak budeme pracovat se špičkovým momentem.
 
 Opět dosadíme do vztahu \ref[momentsily2] a dostáváme hodnotu momentu setrvačnosti $169851,4~kg\cdot mm^2$. Opět se ale jedná pouze o hrubý odhad.
 
@@ -699,9 +703,9 @@ Pomocí uživatelského rozhraní by měla být možnost vytvářet a upravovat 
 
 \chap Závěr
 
-Cílem této práce bylo rozšířit badmintonový stroj o možnost změny elevace a azimutu. Dále implementovat tréninkové plány a realizovat uživatelské rozhraní. Nakonec také navrhnout pohony a řídící jednotku pro novou konstrukci a spolupracovat na návrhu.
+Cílem této práce bylo rozšířit badmintonový stroj o možnost změny elevace a azimutu. Dále implementovat tréninkové plány a realizovat uživatelské rozhraní. Nakonec také navrhnout pohony a řídící jednotku pro novou konstrukci a spolupracovat na návrhu. Veškerá měření a experimenty byly prováděny se stávajícím prototypem, který byl již při začátku práce poměrně těžký. Z důvodu zpevnění a vyvážení konstrukce se váha ještě zvýšila, ale rozhodlo se, že na ověření parametrů tato konstrukce postačí.
 
-V rámci práce jsem se seznámil s produkty firmy B\&R a zprovoznil servozesilovače ACOPOS. Po zprovoznění servozeilovačů a odladění parametrů jsem zjistil nedostatečný výkon obou motorů, proto musela být osa elevace dodatečně vyvážena, čímž se problém této osy vyřešil. U osy azimutu by byl potřeba silnější motor, proto je nastaveno velmi malé zrychlení. 
+V rámci práce jsem se seznámil s produkty firmy B\&R a zprovoznil servozesilovače ACOPOS. Po zprovoznění servozesilovačů a odladění parametrů jsem zjistil nedostatečný výkon obou motorů, proto musela být osa elevace dodatečně vyvážena, čímž se problém této osy vyřešil. U osy azimutu by byl potřeba silnější motor, proto je nastaveno velmi malé zrychlení. 
 
 Dále jsem implementoval tréninkové plány, podle požadavků badmintonového trenéra Mgr. Michala Turoně. Dynamické parametry tohoto prototypu bohužel nejsou natolik dobré, aby stroj dokázal pokrýt veškeré požadavky, ale pro ověření principu je tato implementace dostatečná. Pro ovládání těchto tréninkových programů bylo navrženo uživatelské rozhraní, které běží na VNC serveru v řídicím PLC. K tomuto VNC serveru se díky připojenému AP dá připojit i z mobilního telefonu. 
 
