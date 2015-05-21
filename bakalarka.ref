@@ -185,8 +185,16 @@
 \Xlabel{raspi}{9.2}
 \Xpage{35}
 \Xsecc{9.3.3}{Ovládání a uživatelské rozhraní }{35}
+\Xfig{wireframe1}{9.3}{Návrh nového uživatelského rozhraní - výběr programu.}
+\Xlabel{wireframe1}{9.3}
 \Xpage{36}
-\Xchap{10}{Závěr }{36}
+\Xfig{wireframe2}{9.4}{Návrh nového uživatelského rozhraní - parametry.}
+\Xlabel{wireframe2}{9.4}
+\Xfig{wireframe3}{9.5}{Návrh nového uživatelského rozhraní - chod tréninku.}
+\Xlabel{wireframe3}{9.5}
+\Xpage{37}
+\Xpage{38}
+\Xchap{10}{Závěr }{38}
 \Xbib{knight}{1}{, }
 \Xbib{apollo}{2}{, }
 \Xbib{siboasi}{3}{, }
@@ -199,11 +207,11 @@
 \Xbib{The_aerodynamic_wall}{10}{Cohen, 2013}
 \Xbib{badmintonweb}{11}{, }
 \Xbib{mars}{12}{, }
-\Xpage{37}
-\Xchap{!1}{Literatura}{37}
 \Xpage{39}
+\Xchap{!1}{Literatura}{39}
+\Xpage{41}
 \Xlabel{zkratky}{A}
-\Xchap{A}{Seznam zkratek }{39}
-\Xpage{40}
+\Xchap{A}{Seznam zkratek }{41}
+\Xpage{42}
 \Xlabel{obsahcd}{B}
-\Xchap{B}{Obsah přiloženého CD }{40}
+\Xchap{B}{Obsah přiloženého CD }{42}

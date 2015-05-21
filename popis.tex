@@ -205,7 +205,7 @@ Maximální zrychlení je dáno vztahem \ref[momentsily].
 
 \label[momentsily]
 $$\alpha={{M}\over{J}} \eqmark $$
-Kde $\alpha$ je úhlové zrychlení, M je moment síly a J je moment sertvačnosti. Moment síly dostáváme z dokumentace k motoru, kde jsme zjistili, že maximální stálý moment je 0,2~Nm a maximální špičkový moment je 0,8~Nm. Vzhledem k tomu, že rychlost otáčení měníme pouze jednou během jednoho výstřelu a v případě tohoto prototypu je maximální perioda výstřelů okolo 1~s, můžeme počítat s momentem síly blížícím se maximálnímu špičkovému zatížení. V našem případě použijeme 0,7~Nm. Jako maximální zrychlení tedy po dosazení do vztahu \ref[momentsily] dostáváme hodnotu $339,25~rad\cdot s^{-2}$.
+Kde $\alpha$ je úhlové zrychlení, {\em M} je moment síly a {\em J} je moment sertvačnosti. Moment síly dostáváme z dokumentace k motoru, kde jsme zjistili, že maximální stálý moment je 0,2~Nm a maximální špičkový moment je 0,8~Nm. Vzhledem k tomu, že rychlost otáčení měníme pouze jednou během jednoho výstřelu a v případě tohoto prototypu je maximální perioda výstřelů okolo 1~s, můžeme počítat s momentem síly blížícím se maximálnímu špičkovému zatížení. V našem případě použijeme 0,7~Nm. Jako maximální zrychlení tedy po dosazení do vztahu \ref[momentsily] dostáváme hodnotu $339,25~rad\cdot s^{-2}$.
 
 
 \secc Podavač
@@ -360,14 +360,14 @@ Ve stavu VYPNUTO je stroj v klidu a čeká na spuštění některého z program�
 
 \sec Výpočet doletu
 
-Pro většinu tréninkových programů je naprosto klíčová znalost doletu míčku v závislosti na nastavení rychlosti kotoučů a elevace. Trajektorie letu košíku je balistická křivka. Při letu košíku navíc dochází k jeho přetočení a oscilacím, proto je popis trajektorie letu velmi složitý. Popisem křivky letu se zabývají například práce \cite[Badminton_shuttlecock_aerodynamics] a \cite[Shuttlecock_dynamics]. Bohužel nejsou známy parametry popisující chování míčku ve vzduchu, proto nelze spočítat dostřel přesně. Dalším problémem je rozdíl mezi různými míčky, při výpočtu by bylo potřeba zohlednit například i materiál nebo stáří míčku. V neposlední řadě je nutné znát i rychlost košíku při opuštění stroje. Tato rychlost se teoreticky rovná obvodové rychlosti kotoučů, ale z důvodu prokluzu míčku mezi kotouči bude vždy menší. Proto nikdy nespočítáme dostřel přesně a výpočet bude vždy jen přibližný. V práci \cite[The_aerodynamic_wall] je odvozen vztah \ref[dolet] který celkem dobře aproximuje dolet míčku v závislosti na počáteční rychlosti, nastavené elevaci a aerodynamické délce. Je zde také odvozeno že při vysokých rychlostech už dolet míčku nezávisí na počáteční rychlosti. Tento jev se nazývá \uv{aerodynamická zeď}.
+Pro většinu tréninkových programů je naprosto klíčová znalost doletu míčku v závislosti na nastavení rychlosti kotoučů a elevace. Trajektorie letu košíku je balistická křivka. Při letu košíku navíc dochází k jeho přetočení a oscilacím, proto je popis trajektorie letu velmi složitý. Popisem křivky letu se zabývají například práce \cite[Badminton_shuttlecock_aerodynamics] a \cite[Shuttlecock_dynamics]. Velkým problémem vři výpočtu doletu je rozdíl mezi různými míčky, při výpočtu by bylo potřeba zohlednit například i materiál nebo stáří míčku. V neposlední řadě je nutné znát i rychlost košíku při opuštění stroje. Tato rychlost se teoreticky rovná obvodové rychlosti kotoučů, ale z důvodu prokluzu míčku mezi kotouči bude vždy menší. Proto nikdy nespočítáme dostřel přesně a výpočet bude vždy jen přibližný. V práci \cite[The_aerodynamic_wall] je odvozen vztah \ref[dolet] který celkem dobře aproximuje dolet míčku v závislosti na počáteční rychlosti, nastavené elevaci a aerodynamické délce. Je zde také odvozeno že při vysokých rychlostech už dolet míčku nezávisí na počáteční rychlosti. Tento jev se nazývá \uv{aerodynamická zeď}.
 \label[dolet]
 $$x={{L\cdot \cos(\varphi)}\over{2}}\cdot \ln \left (1+4\cdot \left ({{v_0}\over{v_{inf}}}\right )^2 \cdot \sin(\varphi)\right ) \eqmark $$
-kde x je vzdálenost, ve které se míček nachází ve stejné výšce, z jaké byl vystřelen v metrech. L je aerodynamická délka opět v metrech. Dále je zde $\varphi$, což je počáteční úhel elevace. V neposlední řadě vztah obsahuje počáteční rychlost košíku $v_0$ a maximální pádovou rychlost $v_{inf}$. Obě rychlosti se dosazují v $m\cdot s^{-1}$. 
+kde {\em x} je vzdálenost, ve které se míček nachází ve stejné výšce, z jaké byl vystřelen v metrech. {\em L} je aerodynamická délka opět v metrech. Dále je zde $\varphi$, což je počáteční úhel elevace. V neposlední řadě vztah obsahuje počáteční rychlost košíku $v_0$ a maximální pádovou rychlost $v_{inf}$. Obě rychlosti se dosazují v $m\cdot s^{-1}$. 
 
 Odvozením konkrétní trajektorie míčku se zabývá práce \cite[Badminton_shuttlecock_aerodynamics] kde je uvedeno také porovnání ruzných typů košíků a jejich trajektorií. 
 
-Parametr, který je závislý na konkrétním košíku, je aerodynamická délka L. V tomto parametru se projevuje každá nesymetrie míčku. Parametr je také závislý na váze, materiálu a opotřebení košíku. Hodnoty tohoto parametru byly experimentálně odvozeny v práci \cite[Shuttlecock_dynamics].  V této práci je odvozeno, že košíky vyrobené z peří mají tuto délku přibližně L=6,5~m a plastové košíky přibližně L=7~m. Z těchto hodnot vyplývá, že míčky vyrobené z plastu jsou rychlejší a mají větší dolet.
+Parametr, který je závislý na konkrétním košíku, je aerodynamická délka {\em L}. V tomto parametru se projevuje každá nesymetrie míčku. Parametr je také závislý na váze, materiálu a opotřebení košíku. Hodnoty tohoto parametru byly experimentálně odvozeny v práci \cite[Shuttlecock_dynamics].  V této práci je odvozeno, že košíky vyrobené z peří mají tuto délku přibližně {\em L=6,5~m} a plastové košíky přibližně {\em L=7~m}. Z těchto hodnot vyplývá, že míčky vyrobené z plastu jsou rychlejší a mají větší dolet.
 
 Změřené údaje popisující možnosti stroje jsou uvedeny v kapitole \ref[mereni].
 
@@ -434,13 +434,13 @@ Obsahem této kapitoly je podrobná analýza točivého momentu na jednotlivých
 Jak již bylo uvedeno v kapitole \ref[prototyp2], maximální rychlost kotoučů, která má smysl, je 4000~RPM. Při vyšších rychlostech otáčení totiž míček při dotyku s povrchem kotouče prokluzuje a rychlost odpalu se nezvyšuje. Dále z kapitoly \ref[programy] vyplývá, že je potřeba vešteré změny rychlosti stihnout za 1~s. Velký moment je zapotřebí pouze při změně rychlosti otáčení kotoučů. Největší změny jsou při střídání střelby do zadní části kurtu a blízko sítě. Při takovémto režimu dochází ke změně otáček asi o 2000~RPM. Potřebný točivý moment motoru vypočítáme podle vzorce \ref[vztahMoment].
 \label[vztahMoment]
 $$M=\alpha \cdot J \eqmark $$
-kde M je moment síly potřebný pro požadované zrychlení v Nm. J je moment setrvačnosti kotouče a rovná se $2063,4~kg\cdot mm^2$ (viz kapitola \ref[prototyp2]), je potřeba jej dosazovat v jednotce $kg\cdot mm^2$ a $\alpha$ je úhlové zrychlení, které vyplývá z uvedených hodnot a je rovno $209,44~rad\cdot s^{-2}$. Úhlové zrychlení je potřeba dosazovat v $rad\cdot s^{-2}$.
+kde {\em M} je moment síly potřebný pro požadované zrychlení v Nm. {\em J} je moment setrvačnosti kotouče a rovná se $2063,4~kg\cdot mm^2$ (viz kapitola \ref[prototyp2]), je potřeba jej dosazovat v jednotce $kg\cdot mm^2$ a $\alpha$ je úhlové zrychlení, které vyplývá z uvedených hodnot a je rovno $209,44~rad\cdot s^{-2}$. Úhlové zrychlení je potřeba dosazovat v $rad\cdot s^{-2}$.
 
 Po převedení na správné jednotky a dosazení do vztahu \ref[vztahMoment] je tedy minimální požadovaný točivý moment motoru 0,432~Nm.
 
 \sec Elevace
 
-Pro výpočet momentu potřebného pro pohyb osy elevace neznáme přesnou hodnotu momentu setrvačnosti. Tu ale můžeme přibližně odvodit ze zkušeností se strojem a úhlového zrychlení, které stroj zvládá. Maximální zrychlení, které bylo vyzkoušeno a motor jej ještě zvládá, je $450~{{RPM}\over{s}}$, tedy $\alpha = 47,12~rad\cdot s^{-2}$. Použitý motor má moment 0,6~Nm, špičkově až 2,4~Nm. Počítat budeme s momentem M=2~Nm. Moment setrvačnosti můžeme odhadnout dosazením do vzorce \ref[momentsily2].
+Pro výpočet momentu potřebného pro pohyb osy elevace neznáme přesnou hodnotu momentu setrvačnosti. Tu ale můžeme přibližně odvodit ze zkušeností se strojem a úhlového zrychlení, které stroj zvládá. Maximální zrychlení, které bylo vyzkoušeno a motor jej ještě zvládá, je $450~{{RPM}\over{s}}$, tedy $\alpha = 47,12~rad\cdot s^{-2}$. Použitý motor má moment 0,6~Nm, špičkově až 2,4~Nm. Počítat budeme s momentem {\em M=2~Nm}. Moment setrvačnosti můžeme odhadnout dosazením do vzorce \ref[momentsily2].
 
 \label[momentsily2]
 $$\alpha={{M}\over{J}} \eqmark $$
@@ -455,7 +455,7 @@ $$s={1\over 2} \cdot \epsilon \cdot t^2 \eqmark $$
 \label[rovZrych2]
 $$\epsilon={{2\cdot s}\over{t^2}} \eqmark $$
 
-Po dosazení do vztahu \ref[rovZrych2] dostáváme požadované zrychlení $80~^\circ\cdot~s^{-2}$ tedy $1,396~rad\cdot~s^{-2}$. Toto požadované zrychlení není nijak kritické a po dosazení do vztahu \ref[vztahMoment] dostáváme minimální požadovaný točivý moment motoru 0,06~Nm.
+Po dosazení do vztahu \ref[rovZrych2] dostáváme požadované zrychlení $80^\circ\cdot{s^{-2}}$ tedy $1,396~rad\cdot{s^{-2}}$. Toto požadované zrychlení není nijak kritické a po dosazení do vztahu \ref[vztahMoment] dostáváme minimální požadovaný točivý moment motoru 0,06~Nm.
 
 
 \sec Azimut
@@ -696,15 +696,34 @@ Na Raspberry je nainstalován systém Raspbian, který je odnoží Linuxové dis
 
 \secc Ovládání a uživatelské rozhraní
 
-Jak již bylo zmíněno ovládání by mělo být jednoduché, intuitivní a pokud možno nezávislé na jakémkoliv dalším zařízení. Jak je vidět u konkurence, tak všechny konkurenční stroje jsou ovládány malým bezdrátovým ovladačem, na kterém lze zároveň měnit parametry tréninkového programu. Podobné řešení by bylo dobré implementovat i u našeho stroje. 
+Jak již bylo zmíněno, pomocí uživatelského rozhraní se budou ovládat veškeré funkce stroje. Po spuštění je zobrazena obrazovka, na které je možnost výběru tréninkového programu. Náčrt této obrazovky je na obrázku \ref[wireframe1].
 
-Další možností je do konstrukce stroje zabudovat tablet a veškeré ovládání implementovat do něj, případně k Raspberry Pi připojit dotykovou obrazovku a uživatelské rozhraní implementovat přímo zde.
+\midinsert \clabel[wireframe1]{Návrh nového uživatelského rozhraní - výběr programu.}
+\picw=13cm \cinspic pic/wireframe1.PNG
+\caption/f Návrh nového uživatelského rozhraní - výběr programu.
+\endinsert
+
+V levé části této obrazovky je menu, ze kterého je možno vybrat existující tréninkový program. V prostřední části je krátký popis tohoto režimu, pod kterým je tlačítko na úpravu parametrů zvoleného programu. Toto tlačítko otevře obrazovku naznačenou na obrázku \ref[wireframe2], jejíž popis je uveden dále. Ve spodní části obrazovky je výběr varianty a nastavení obtížnosti. Celou pravou část zabírá obrázek kurtu, na kterém je naznačeno kde má být stroj umístěn a kam bude střílet.
+
+\midinsert \clabel[wireframe2]{Návrh nového uživatelského rozhraní - parametry.}
+\picw=13cm \cinspic pic/wireframe2.PNG
+\caption/f Návrh nového uživatelského rozhraní - parametry.
+\endinsert
+
+Při přidání nového třéninku nebo při stisknutí tlačítka pro úpravu parametrů se otevře obrazovka na obrázku \ref[wireframe2]. V levém horním rohu je možnost změnit název a popis programu. Hned vedle je tlačítko pro odstranění programu. Pod polem pro popis programu je možnos vytvářet a mazat varianty upravovaného tréninkového programu. V prostřední části obrazovky je možno vytvářet a upravovat body, do kterých stroj střílí. Tyto body se upravují pomocí šipek, kterými se mění azimut a elevace stroje a také rychlost otáčení kotoučů. Při nastavování těchto parametrů lze povolit režim, při kterém dochází také průběžně k pohybům stroje a stisknutím tlačítka {\bf Vystřelit} je možnost provést zkušební výstřel. Veškeré změny jsou také promítnuty do nákresu kurtu uvedeném v pravé části obrazovky. Zde je možnost měnit polohu stroje tím, že jej prostě přetáhneme jinam. Od nastavené polohy stroje se počítá poloha zobrazených bodů.
+
+\midinsert \clabel[wireframe3]{Návrh nového uživatelského rozhraní - chod tréninku.}
+\picw=13cm \cinspic pic/wireframe3.PNG
+\caption/f Návrh nového uživatelského rozhraní - chod tréninku.
+\endinsert
+
+Po spuštění vybraného tréninkového programu vidíme obrazovku na obrázku \ref[wireframe3] na které je zobrazen probíhající trénink a počet odpálených a zbývajících míčků. Počet zbývajících míčků lze měnit pomocí tlačítek {\bf +} a {\bf -}. Dále je zde možnost průběžně měnit obtížnost případně přepínat mezi pravidelným a náhodným střídáním směru a intervalu. V pravé části obrazovky je navíc možnost přepnout na jiný tréninkový program. Ve spodní části obrazovky jsou tlačítka na zastavení případně pozastavení tréninku.
 \nl
 \nl
-Pomocí uživatelského rozhraní by měla být možnost vytvářet a upravovat tréninkové programy včetně úpravy křivky letu míčku a definování míst kam a v jakém pořadí mají dopadat míčky. Při běhu tréninkového programu by měla být možnost průběžně měnit obtížnost, případně plynule přejít na jiný program. 
+Ovládání bude realizováno buďto pomocí zabudovaného tabletu, nebo pomocí dotykové obrazovky připojené k počítači Raspberry Pi. Použití tabletu by mělo výhodu v možnosti jeho vyjmutí ze stroje a ovládání stroje bezdrátově. Při použití dotykové obrazovky připojené k Raspberry Pi by bylo potřeba k usnadnění ovládání připojit ještě bezdrátový ovladač.
 \nl
 \nl
-Úprava a vytváření tréninkových programů by mělo být možné i s pomocí aplikace pro PC a to buďto online, tudíž při přímém propojení PC a stroje, nebo offline. Při offline úpravě nebo vytváření tréninkového programu by pak PC nemuselo být propojeno se strojem a vytvořený program by se na stroj nahrál při pozdějším připojení, nebo se přenesl pomocí flash disku. 
+Uvedené ovládání bude ještě doplněno aplikací pro PC, který bude sloužit k jednoduší tvorbě tréninkových programů. Tyto programy se vytvoří v PC a poté se do stroje přenesou pomocí flash disku nebo při přímém propojení kabelem. Z programu bude možnost také ovládat stroj, ale spíše jako nouzové nebo servisní řešení.
 
 
 \chap Závěr
