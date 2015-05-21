@@ -58,14 +58,14 @@
 \Xsecc{4.3.1}{Parametry PID regulátorů polohy }{10}
 \Xsecc{4.3.2}{Elevace }{10}
 \Xpage{11}
-\Xfig{elevace1}{4.5}{Graf pohybu z polohy $-45^\circ $ do polohy $45^\circ $.}
+\Xfig{elevace1}{4.5}{Graf pohybu z~polohy $-45^\circ $ do polohy $45^\circ $.}
 \Xlabel{elevace1}{4.5}
-\Xfig{elevace2}{4.6}{Graf pohybu z polohy $90^\circ $ do polohy $100^\circ $.}
+\Xfig{elevace2}{4.6}{Graf pohybu z~polohy $90^\circ $ do polohy $100^\circ $.}
 \Xlabel{elevace2}{4.6}
-\Xfig{elevace3}{4.7}{Graf pohybu z polohy $90^\circ $ do polohy $100^\circ $ se sníženým zrychlením.}
+\Xfig{elevace3}{4.7}{Graf pohybu z~polohy $90^\circ $ do polohy $100^\circ $ se sníženým zrychlením.}
 \Xlabel{elevace3}{4.7}
 \Xsecc{4.3.3}{Azimut }{11}
-\Xfig{azimut}{4.8}{Graf pohybu z polohy $-15^\circ $ do polohy $10^\circ $.}
+\Xfig{azimut}{4.8}{Graf pohybu z~polohy $-15^\circ $ do polohy $10^\circ $.}
 \Xlabel{azimut}{4.8}
 \Xpage{12}
 \Xsecc{4.3.4}{Kotouče }{12}
@@ -89,7 +89,7 @@
 \Xtab{mereni11}{4.2}{Naměřené hodnoty při střelbě rovně před sebe do vzdálenosti 9,4~m.}
 \Xlabel{mereni11}{4.2}
 \Xsecc{4.4.2}{Měření závislosti doletu na otáčkách kotoučů }{14}
-\Xtab{merenivzdalenost}{4.3}{Měření doletu v závislosti na otáčkách kotoučů.}
+\Xtab{merenivzdalenost}{4.3}{Měření doletu v~závislosti na otáčkách kotoučů.}
 \Xlabel{merenivzdalenost}{4.3}
 \Xpage{15}
 \Xfig{grafDostrel}{4.13}{Závislost dostřelu na rychlosti otáčení kotoučů.}
@@ -110,6 +110,7 @@
 \Xpage{18}
 \Xfig{diagram}{5.2}{Vývojový diagram automatického řízení.}
 \Xlabel{diagram}{5.2}
+\Xlabel{vypocetdoletu}{5.2}
 \Xsec{5.2}{Výpočet doletu }{18}
 \Xlabel{dolet}{(1)}
 \Xpage{19}
@@ -165,36 +166,37 @@
 \Xsec{8.5}{Na raketu }{29}
 \Xsec{8.6}{Příjem servisu }{29}
 \Xpage{30}
-\Xpage{31}
-\Xchap{9}{Prototyp 3 }{31}
-\Xsec{9.1}{Návrh konstrukce }{31}
-\Xsecc{9.1.1}{Kotouče }{31}
+\Xchap{9}{Prototyp 3 }{30}
+\Xsec{9.1}{Návrh konstrukce }{30}
+\Xsecc{9.1.1}{Kotouče }{30}
 \Xlabel{setrvacnost}{(1)}
-\Xsecc{9.1.2}{Podavač }{31}
+\Xsecc{9.1.2}{Podavač }{30}
+\Xpage{31}
+\Xsecc{9.1.3}{Nastavení směru }{31}
+\Xsec{9.2}{Návrh pohonů }{31}
+\Xfnote
+\Xfnote
+\Xsec{9.3}{Návrh řídicího systému }{31}
+\Xsecc{9.3.1}{Výkonová jednotka }{31}
 \Xpage{32}
-\Xsecc{9.1.3}{Nastavení směru }{32}
-\Xsec{9.2}{Návrh pohonů }{32}
-\Xsec{9.3}{Návrh řídicího systému }{32}
-\Xsecc{9.3.1}{Výkonová jednotka }{32}
-\Xpage{33}
 \Xfig{mars}{9.1}{Výkonová jednotka.}
 \Xlabel{mars}{9.1}
-\Xpage{34}
-\Xsecc{9.3.2}{Výpočetní jednotka }{34}
-\Xfig{raspi}{9.2}{Raspberry Pi \cite [raspi]}
+\Xpage{33}
+\Xsecc{9.3.2}{Výpočetní jednotka }{33}
+\Xfig{raspi}{9.2}{Raspberry Pi 2 B \cite [raspi]}
 \Xlabel{raspi}{9.2}
-\Xpage{35}
-\Xsecc{9.3.3}{Ovládání a uživatelské rozhraní }{35}
+\Xpage{34}
+\Xsecc{9.3.3}{Ovládání a uživatelské rozhraní }{34}
 \Xfig{wireframe1}{9.3}{Návrh nového uživatelského rozhraní - výběr programu.}
 \Xlabel{wireframe1}{9.3}
-\Xpage{36}
+\Xpage{35}
 \Xfig{wireframe2}{9.4}{Návrh nového uživatelského rozhraní - parametry.}
 \Xlabel{wireframe2}{9.4}
+\Xpage{36}
 \Xfig{wireframe3}{9.5}{Návrh nového uživatelského rozhraní - chod tréninku.}
 \Xlabel{wireframe3}{9.5}
 \Xpage{37}
-\Xpage{38}
-\Xchap{10}{Závěr }{38}
+\Xchap{10}{Závěr }{37}
 \Xbib{knight}{1}{, }
 \Xbib{apollo}{2}{, }
 \Xbib{siboasi}{3}{, }
@@ -207,15 +209,15 @@
 \Xbib{The_aerodynamic_wall}{10}{Cohen, 2013}
 \Xbib{badmintonweb}{11}{, }
 \Xbib{mars}{12}{, }
+\Xpage{38}
+\Xchap{!1}{Literatura}{38}
 \Xpage{39}
-\Xchap{!1}{Literatura}{39}
-\Xpage{41}
 \Xlabel{zkratky}{A}
-\Xchap{A}{Seznam zkratek }{41}
-\Xpage{42}
+\Xchap{A}{Seznam zkratek }{39}
+\Xpage{40}
 \Xlabel{obsahcd}{B}
-\Xchap{B}{Obsah přiloženého CD }{42}
-\Xpage{43}
+\Xchap{B}{Obsah přiloženého CD }{40}
+\Xpage{41}
 \Xlabel{program}{C}
-\Xchap{C}{Program pro otestování výkonové jednotky }{43}
-\Xpage{44}
+\Xchap{C}{Program pro otestování výkonové jednotky }{41}
+\Xpage{42}
