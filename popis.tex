@@ -434,7 +434,7 @@ Obsahem této kapitoly je podrobná analýza točivého momentu na jednotlivých
 Jak již bylo uvedeno v kapitole \ref[prototyp2], maximální rychlost kotoučů, která má smysl, je 4000~RPM. Při vyšších rychlostech otáčení totiž míček při dotyku s povrchem kotouče prokluzuje a rychlost odpalu se nezvyšuje. Dále z kapitoly \ref[programy] vyplývá, že je potřeba vešteré změny rychlosti stihnout za 1~s. Velký moment je zapotřebí pouze při změně rychlosti otáčení kotoučů. Největší změny jsou při střídání střelby do zadní části kurtu a blízko sítě. Při takovémto režimu dochází ke změně otáček asi o 2000~RPM. Potřebný točivý moment motoru vypočítáme podle vzorce \ref[vztahMoment].
 \label[vztahMoment]
 $$M=\alpha \cdot J \eqmark $$
-kde {\em M} je moment síly potřebný pro požadované zrychlení v Nm. {\em J} je moment setrvačnosti kotouče a rovná se $2063,4~kg\cdot mm^2$ (viz kapitola \ref[prototyp2]), je potřeba jej dosazovat v jednotce $kg\cdot mm^2$ a $\alpha$ je úhlové zrychlení, které vyplývá z uvedených hodnot a je rovno $209,44~rad\cdot s^{-2}$. Úhlové zrychlení je potřeba dosazovat v $rad\cdot s^{-2}$.
+kde {\em M} je moment síly potřebný pro požadované zrychlení v Nm. {\em J} je moment setrvačnosti kotouče a rovná se $2063,4~kg\cdot mm^2$ (viz Kapitola \ref[prototyp2]), je potřeba jej dosazovat v jednotce $kg\cdot mm^2$ a $\alpha$ je úhlové zrychlení, které vyplývá z uvedených hodnot a je rovno $209,44~rad\cdot s^{-2}$. Úhlové zrychlení je potřeba dosazovat v $rad\cdot s^{-2}$.
 
 Po převedení na správné jednotky a dosazení do vztahu \ref[vztahMoment] je tedy minimální požadovaný točivý moment motoru 0,432~Nm.
 
@@ -447,7 +447,7 @@ $$\alpha={{M}\over{J}} \eqmark $$
 
 Po dosazení dostáváme hodnotu $J=42444,8~kg\cdot mm^2$. Tato hodnota je samozřejmě pouze velmi hrubým odhadem dané veličiny, ale pro naše účely je tento odhad dostatečný. 
 
-Z kapitoly \ref[programy] dostaneme nejvyšší změnu elevace, a za jaký čas je potřeba tuto změnu stihnout. Nejnáročnější na změnu elevace bude opět režim při kterém je zapotřebí pokrýt celý kurt, zde je nutné stíhat měnit elevaci v rozsahu asi $45^\circ$ az $65^\circ$, tedy o $20^\circ$. Tuto změnu je potřeba provést za 1~s. Požadované úhlové zrychlení určíme ze vztahu pro dráhu rovnoměrně zrychleného pohybu (viz rovnice \ref[rovZrych]).
+Z kapitoly \ref[programy] dostaneme nejvyšší změnu elevace, a za jaký čas je potřeba tuto změnu stihnout. Nejnáročnější na změnu elevace bude opět režim při kterém je zapotřebí pokrýt celý kurt, zde je nutné stíhat měnit elevaci v rozsahu asi $45^\circ$ az $65^\circ$, tedy o $20^\circ$. Tuto změnu je potřeba provést za 1~s. Požadované úhlové zrychlení určíme ze vztahu pro dráhu rovnoměrně zrychleného pohybu vo kružnici \ref[rovZrych].
 
 \label[rovZrych]
 $$s={1\over 2} \cdot \epsilon \cdot t^2 \eqmark $$
@@ -499,7 +499,7 @@ Posledním z úderů, procvičovaných ze zadní části hříště, je {\bf Sme
 \caption/f Tréninkové programy - střelba do zadní části kurtu.
 \endinsert
 
-Při střelbě do zadní části kurtu by měl stroj ideálně střílet přibližně jeden míček za sekundu v závislosti na obtížnosti programu. Dále by měl stroj střídat strany, na kterou míček letí, a to buď pravidelně, nebo nepravidelně. Možnosti jsou střílet z jedné strany, nebo z prostřed kurtu. Další možností je použít dva stroje, každý na jedné straně kurtu, které budou střílet přímo před sebe, případně křížem (viz obrázek \ref[zadniStrely]). Z toho také vyplývá požadavek na rychlost změny azimutu, která by se měla stihnout dřív, než bude vypálen další míček. 
+Při střelbě do zadní části kurtu by měl stroj ideálně střílet přibližně jeden míček za sekundu v závislosti na obtížnosti programu. Dále by měl stroj střídat strany, na kterou míček letí, a to buď pravidelně, nebo nepravidelně. Možnosti jsou střílet z jedné strany, nebo z prostřed kurtu. Další možností je použít dva stroje, každý na jedné straně kurtu, které budou střílet přímo před sebe, případně křížem (viz Obrázek \ref[zadniStrely]). Z toho také vyplývá požadavek na rychlost změny azimutu, která by se měla stihnout dřív, než bude vypálen další míček. 
 
 Protože je potřeba střílet přes celý kurt, tak je nutná i poměrně vysoká rychlost otáček kotoučů. Při testování na kurtu je jednalo o obvodovou rychlost přibližně 45~$m\cdot~s^{-1}$. 
 
@@ -610,7 +610,7 @@ Jak již bylo uvedeno, je potřeba dosáhnout co nejlepších dynamických param
 
 \sec Návrh pohonů
 
-Při výběru pohoných jednotek jsem vycházel z analýzy točivého momentu (viz kapitola~\ref[tocmoment]) a předpokládaných úprav. Z těchto informací byla odhadnuta maximální požadovanoá rychlost otáčení motoru a požadovaný točivý moment motoru. S ohledem na požadované vlastnosti motorů budou pro pohon kotoučů dva stejnosměrné bezkartáčové motory. Navržený typ motoru je od firmy Anaheim Automation, konkrétně typ BLY174S-24V-12000. Tento motor má točivý motor 0,09~Nm a maximální rychlost otáčení 12000~RPM. K nastavení směru se jeví jako nejvhodnější řešení krokové motory. Krokové motory mají pro tuto aplikaci tu výhodu, že není potřeba externí enkodér k detekci polohy. Na novou konstrukci byl vybrán motor 23Y102S-LW8 opět od firmy Anaheim Automation. Parametry tohoto motoru jsou dostatečné pro použití na novém stroji. Točivý moment je 1,24~Nm a krok $1,8^\circ$ Jako poslední pohonný prvek bylo potřeba vybrat pohon pro podavač míčků. Navržené konstrukci nejlépe vyhovuje upravené modelářské servo, kterému se odstraní zarážky, aby se mohlo točit dokola. 
+Při výběru pohoných jednotek jsem vycházel z analýzy točivého momentu (viz Kapitola~\ref[tocmoment]) a předpokládaných úprav. Z těchto informací byla odhadnuta maximální požadovanoá rychlost otáčení motoru a požadovaný točivý moment motoru. S ohledem na požadované vlastnosti motorů budou pro pohon kotoučů dva stejnosměrné bezkartáčové motory. Navržený typ motoru je od firmy Anaheim Automation, konkrétně typ BLY174S-24V-12000. Tento motor má točivý motor 0,09~Nm a maximální rychlost otáčení 12000~RPM. K nastavení směru se jeví jako nejvhodnější řešení krokové motory. Krokové motory mají pro tuto aplikaci tu výhodu, že není potřeba externí enkodér k detekci polohy. Na novou konstrukci byl vybrán motor 23Y102S-LW8 opět od firmy Anaheim Automation. Parametry tohoto motoru jsou dostatečné pro použití na novém stroji. Točivý moment je 1,24~Nm a krok $1,8^\circ$ Jako poslední pohonný prvek bylo potřeba vybrat pohon pro podavač míčků. Navržené konstrukci nejlépe vyhovuje upravené modelářské servo, kterému se odstraní zarážky, aby se mohlo točit dokola. 
 
 \sec Návrh řídicího systému
 
@@ -632,7 +632,7 @@ Celé zařízení je vidět na obrázku \ref[mars]. Jedná se o prototyp zapůj�
 \nl
 \nl
 
-Pro otestování jednotky byl použit jednoduchý program napsaný v programovacím jazyku Python. Jednotka se připojí k PC pomocí sběrnice UART přes převodník FTDI. Po připojení se zařízení hlásí jako sériový port, na kterém naslouchá. Zařízení se ovládá pomocí jednoduchých příkazů. Každý příkaz se skládá ze tří částí, které mohou být odděleny mezerami \cite[mars]:
+Jednotka se připojí k PC pomocí sběrnice UART přes převodník FTDI. Po připojení se zařízení hlásí jako sériový port, na kterém naslouchá. Zařízení se ovládá pomocí jednoduchých příkazů. Každý příkaz se skládá ze tří částí, které mohou být odděleny mezerami \cite[mars]:
 \begitems
 * {\bf Jméno} Je kombinace znaků. V případě že se příkaz vztahuje k motorům je na konci diplněn znak motoru.
 * {\bf Operační znak} Definuje typ příkazu. Pokud se jedná o dotaz použije se znak \uv{?}. Pro příkaz je vyčleněn znak \uv{:}. Pro potvrzování může být použit znak \uv{.}.
@@ -668,6 +668,8 @@ GRA:100        //Najede motorem A na relativní polohu 100
 
 APA?           //Vrátí polohu motoru A
 \endtt
+
+Pro otestování jednotky byl použit jednoduchý program napsaný v programovacím jazyku Python. Tento program se pouze připojí přes komunikační port k jednotce, zjistí její stav a následně odešle sadu příkazů. Celý kód, který roztočí dva stejnosměrné bezkartáčové motory stejnou rychlostí a opačným směrem, je uveden v příloze \ref[program].
 
 \secc Výpočetní jednotka
 

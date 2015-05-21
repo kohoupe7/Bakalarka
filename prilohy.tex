@@ -44,4 +44,97 @@
 \abbrv[{\bf /text}] Tato práce ve formátu PDF
 \par\egroup
 
+\label[program]
+\app Program pro otestování výkonové jednotky
 
+\begtt
+#!/usr/bin/python
+
+import sys
+import serial
+import time
+
+class stroj(object):
+  def __init__(self, rcon = None):
+    self.rcon = rcon;
+
+  def set_rcon(self, rcon):
+    if self.rcon is not None:
+      self.rcon.close();
+      self.rcon = None;
+    self.rcon = rcon;
+
+  def init_communication(self):
+    s = self.rcon.read(1024)
+
+    self.rcon.write("InvBuff\n")
+    s = self.rcon.read(1024)
+
+    self.rcon.write("ECHO:0\n")
+    s = self.rcon.read(1024)
+    self.rcon.write("VER?\n")
+    s = self.rcon.read(1024)
+    print(s);
+
+    # Purge
+    self.rcon.write("PURGE:\n")
+    s = self.rcon.read(2000)
+    print(s);
+
+def wait_ready(rcon):
+  s = rcon.read(1024)
+  rcon.write("R:\n")
+  while 1:
+    s = rcon.read(1024)
+    if (s[0:2] == "R!"):
+      break
+    time.sleep(1)
+
+if __name__ == '__main__':
+ 
+  opt_help = False
+  tty_dev='COM6'
+  
+  r = stroj();
+
+  print("Opening %s ...\n" % tty_dev)
+  ser = serial.Serial(tty_dev,
+      baudrate=57600,
+      bytesize=serial.EIGHTBITS,
+      parity=serial.PARITY_NONE,
+      stopbits=serial.STOPBITS_ONE,
+      timeout=0.1)
+
+  r.set_rcon(ser)
+
+  r.init_communication()
+
+  r.rcon.write('RELEASEA:\n')
+  r.rcon.write('PURGEA:\n')
+  r.rcon.write('RELEASEB:\n')
+  r.rcon.write('PURGEB:\n')
+
+  r.rcon.write('REGOUTMAP:0,3,6\n')
+
+  r.rcon.write('REGPTIRCA:1000\n')
+  r.rcon.write('REGPTPERA:1\n')
+  r.rcon.write('REGPTMARKA:1180\n')
+  r.rcon.write('REGMODEA:6\n')
+  r.rcon.write('PWMA:0\n')
+  r.rcon.write('REGMODEA:6\n')
+  r.rcon.write('PWMA:0\n')
+
+  r.rcon.write('SPDA:1000\n')
+
+  r.rcon.write('REGPTIRCB:1000\n')
+  r.rcon.write('REGPTPERB:1\n')
+  r.rcon.write('REGPTMARKB:1180\n')
+  r.rcon.write('REGMODEB:6\n')
+  r.rcon.write('PWMB:0\n')
+  r.rcon.write('REGMODEB:6\n')
+  r.rcon.write('PWMB:0\n')
+
+  r.rcon.write('SPDB:-1000\n')
+
+  wait_ready(r.rcon)
+\endtt

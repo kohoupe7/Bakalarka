@@ -215,3 +215,7 @@
 \Xpage{42}
 \Xlabel{obsahcd}{B}
 \Xchap{B}{Obsah přiloženého CD }{42}
+\Xpage{43}
+\Xlabel{program}{C}
+\Xchap{C}{Program pro otestování výkonové jednotky }{43}
+\Xpage{44}
